@@ -1,0 +1,177 @@
+/* We'll use regular CSS instead of Tailwind for now */
+
+:root {
+  /* Dark theme colors (default) */
+  --color-primary: #050816;
+  --color-primary-dark: #030712;
+  --color-secondary: #aaa6c3;
+  --color-tertiary: #151030;
+  --color-text: #ffffff;
+  --color-text-secondary: #aaa6c3;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  
+  /* Light theme colors (will be applied with .dark-mode class) */
+  --color-primary-light: #f8fafc;
+  --color-primary-light-dark: #f1f5f9;
+  --color-secondary-light: #64748b;
+  --color-tertiary-light: #e2e8f0;
+  --color-text-light: #1e293b;
+  --color-text-secondary-light: #475569;
+}
+
+/* Apply light theme styles when dark-mode class is not present */
+html:not(.dark-mode) {
+  --color-primary: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-light-dark);
+  --color-secondary: var(--color-secondary-light);
+  --color-tertiary: var(--color-tertiary-light);
+  --color-text: var(--color-text-light);
+  --color-text-secondary: var(--color-text-secondary-light);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(5, 8, 22, 0.9);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+
+html:not(.dark-mode) .navbar {
+  background-color: rgba(248, 250, 252, 0.9);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.hero {
+  padding-top: 80px; /* Account for navbar height */
+}
+
+.section-container {
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-blue-600);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-blue-700);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-blue-500);
+  border: 1px solid var(--color-blue-500);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-blue-600);
+  color: white;
+}
+
+/* Animation Utils */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsive Utils */
+@media (max-width: 768px) {
+  .section-container {
+    width: 95%;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Page transition styles */
+main {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Add some spacing for page content to account for fixed navbar */
+main > section:first-child {
+  padding-top: 120px;
+}
+
+/* Ensure content doesn't get hidden under navbar */
+html {
+  scroll-padding-top: 100px;
+}
