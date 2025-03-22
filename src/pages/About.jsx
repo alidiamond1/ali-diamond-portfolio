@@ -276,7 +276,7 @@ const About = () => {
               </a>
               
               <a 
-                href="https://linkedin.com/in/Alidiamond" 
+                href="https://linkedin.com/in/Alidiamond19b8052b9" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 style={{ 

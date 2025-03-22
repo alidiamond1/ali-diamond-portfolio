@@ -1,12 +1,79 @@
-# React + Vite
+# Ali Nor - Full Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Screenshot](./screenshot.png)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is my professional portfolio website showcasing my skills, projects, and experience as a Full Stack Developer. The site is built with React and Vite for optimal performance and user experience.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React.js, Vite
+- **Styling**: CSS with custom styling system
+- **State Management**: React Context API
+- **Deployment**: Vercel
+- **Other Tools**: React Icons, react-router-dom
+
+## Features
+
+- **Responsive Design**: Fully responsive across all device sizes
+- **Dark/Light Mode**: Theme toggle for user preference
+- **Project Showcase**: Detailed project cards with links to live demos and code
+- **Contact Form**: Direct communication channel
+- **Smooth Animations**: Enhanced user experience with smooth transitions
+
+## Projects Featured
+
+- **MediaMatch**: Movie discovery application based on user preferences
+- **DashMaster**: Modern admin dashboard with authentication
+- **Donezo**: Professional task management landing page
+- **Blood Management System**: Healthcare application for blood donation management
+- **Task Management System**: PHP-based task organization solution
+- **TaskTracker Pro**: Comprehensive task management built with MERN stack
+- **Personal Blog Platform**: Blog website with authentication and management features
+- **Somalia Language Tutor**: Interactive language learning mobile application
+
+## Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/alidiamond1/ali-nor-portfolio.git
+   cd ali-nor-portfolio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## Project Structure
+
+```
+src/
+├── assets/        # Static assets (images, fonts)
+├── components/    # Reusable UI components
+├── contexts/      # React context providers
+├── pages/         # Page components
+├── styles/        # CSS styles
+└── App.jsx        # Main application component
+```
+
+## Contact
+
+- **GitHub**: [alidiamond1](https://github.com/alidiamond1)
+- **Email**: Calilucky3@gmail.com
+- **LinkedIn**: [https://linkedin.com/in/ali-nor](https://linkedin.com/in/ali-nor)
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
