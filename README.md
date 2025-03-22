@@ -39,8 +39,8 @@ This is my professional portfolio website showcasing my skills, projects, and ex
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/alidiamond1/ali-nor-portfolio.git
-   cd ali-nor-portfolio
+   git clone https://github.com/alidiamond1/ali-diamond-portfolio.git
+   cd ali-diamond-portfolio
    ```
 
 2. **Install dependencies**
@@ -74,7 +74,8 @@ src/
 
 - **GitHub**: [alidiamond1](https://github.com/alidiamond1)
 - **Email**: Calilucky3@gmail.com
-- **LinkedIn**: [https://linkedin.com/in/ali-nor](https://linkedin.com/in/ali-nor)
+- **LinkedIn**: [https://www.linkedin.com/in/ali-diamond-19b8052b9/](https://www.linkedin.com/in/ali-diamond-19b8052b9/)
+
 
 ## License
 
