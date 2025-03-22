@@ -11,7 +11,7 @@ This is my professional portfolio website showcasing my skills, projects, and ex
 - **Frontend**: React.js, Vite
 - **Styling**: CSS with custom styling system
 - **State Management**: React Context API
-- **Deployment**: Vercel
+- **Deployment**: Netlify, Vercel, GitHub Pages
 - **Other Tools**: React Icons, react-router-dom
 
 ## Features
@@ -32,6 +32,8 @@ This is my professional portfolio website showcasing my skills, projects, and ex
 - **TaskTracker Pro**: Comprehensive task management built with MERN stack
 - **Personal Blog Platform**: Blog website with authentication and management features
 - **Somalia Language Tutor**: Interactive language learning mobile application
+
+> **Note:** This is just a selection of highlighted projects. Visit my [GitHub profile](https://github.com/alidiamond1) to discover many more amazing projects that demonstrate my full range of skills and expertise. The projects showcase in this portfolio is dynamically rendered from the `src/pages/Projects.jsx` file which features an elegant, responsive grid layout with interactive project cards.
 
 ## Installation & Setup
 

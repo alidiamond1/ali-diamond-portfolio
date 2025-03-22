@@ -199,11 +199,47 @@ const Projects = () => {
           fontSize: '1.125rem', 
           color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)', 
           maxWidth: '48rem', 
-          margin: '0 auto 3rem', 
+          margin: '0 auto 1.5rem', 
           textAlign: 'center' 
         }}>
           Here are some of my recent projects that showcase my skills and expertise
         </p>
+        
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '2rem'
+        }}>
+          <a 
+            href="https://github.com/alidiamond1" 
+            target="_blank"
+            rel="noreferrer"
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.75rem',
+              color: 'white',
+              backgroundColor: isDarkMode ? '#333' : 'var(--color-blue-600)',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '2rem',
+              textDecoration: 'none',
+              fontSize: '1rem',
+              fontWeight: '500',
+              transition: 'transform 0.2s, background-color 0.3s',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.backgroundColor = isDarkMode ? '#444' : 'var(--color-blue-700)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.backgroundColor = isDarkMode ? '#333' : 'var(--color-blue-600)';
+            }}
+          >
+            <FaGithub size={20} /> View More Projects on GitHub
+          </a>
+        </div>
         
         <div style={{ 
           display: 'grid', 
