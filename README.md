@@ -1,6 +1,4 @@
-# Ali Nor - Full Stack Developer Portfolio
-
-![Portfolio Screenshot](./screenshot.png)
+# Ali Nor - Full Stack Developer
 
 ## Overview
 
