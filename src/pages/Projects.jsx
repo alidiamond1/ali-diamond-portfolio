@@ -1,119 +1,163 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useTheme } from '../contexts/ThemeContext';
 import ProjectImage from '../components/ProjectImage';
+import { motion } from 'framer-motion';
 
-const ProjectCard = ({ title, description, tags, image, github, demo }) => {
+const ProjectCard = ({ title, description, tags, image, github, demo, index }) => {
   const { isDarkMode } = useTheme();
   
   return (
-    <div style={{ 
-      backgroundColor: isDarkMode ? 'var(--color-tertiary)' : 'var(--color-tertiary-light)', 
-      borderRadius: '1rem',
-      padding: '1.5rem',
-      boxShadow: isDarkMode ? '0px 35px 120px -15px #211e35' : '0px 10px 30px -10px rgba(0, 0, 0, 0.1)',
-      transition: 'transform 0.2s, background-color 0.3s ease, box-shadow 0.3s ease',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column'
-    }}
-    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.2,
+        type: "spring",
+        stiffness: 100 
+      }}
+      whileHover={{ 
+        scale: 1.05,
+        boxShadow: isDarkMode 
+          ? "0px 35px 120px -10px #211e35" 
+          : "0px 10px 40px -5px rgba(0, 0, 0, 0.2)"
+      }}
+      style={{ 
+        backgroundColor: isDarkMode ? 'var(--color-tertiary)' : 'var(--color-tertiary-light)', 
+        borderRadius: '1rem',
+        padding: '1.5rem',
+        boxShadow: isDarkMode ? '0px 35px 120px -15px #211e35' : '0px 10px 30px -10px rgba(0, 0, 0, 0.1)',
+        transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
     >
-      <div style={{ 
-        width: '100%', 
-        height: '200px', 
-        backgroundColor: isDarkMode ? '#151030' : '#e2e8f0', 
-        borderRadius: '0.5rem',
-        marginBottom: '1.5rem',
-        overflow: 'hidden'
-      }}>
+      <motion.div 
+        whileHover={{ scale: 1.03 }}
+        transition={{ duration: 0.3 }}
+        style={{ 
+          width: '100%', 
+          height: '200px', 
+          backgroundColor: isDarkMode ? '#151030' : '#e2e8f0', 
+          borderRadius: '0.5rem',
+          marginBottom: '1.5rem',
+          overflow: 'hidden'
+        }}
+      >
         <ProjectImage title={title} />
-      </div>
+      </motion.div>
       
-      <h3 style={{ 
-        fontSize: '1.25rem', 
-        fontWeight: '600', 
-        marginBottom: '0.75rem',
-        color: isDarkMode ? 'white' : 'var(--color-text-light)'
-      }}>
+      <motion.h3 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
+        style={{ 
+          fontSize: '1.25rem', 
+          fontWeight: '600', 
+          marginBottom: '0.75rem',
+          color: isDarkMode ? 'white' : 'var(--color-text-light)'
+        }}
+      >
         {title}
-      </h3>
+      </motion.h3>
       
-      <p style={{ 
-        fontSize: '0.875rem', 
-        color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)', 
-        lineHeight: '1.6',
-        marginBottom: '1rem',
-        flex: '1'
-      }}>
+      <motion.p 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+        style={{ 
+          fontSize: '0.875rem', 
+          color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)', 
+          lineHeight: '1.6',
+          marginBottom: '1rem',
+          flex: '1'
+        }}
+      >
         {description}
-      </p>
+      </motion.p>
       
-      <div style={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        gap: '0.5rem',
-        marginBottom: '1.5rem' 
-      }}>
-        {tags.map((tag, index) => (
-          <span key={index} style={{ 
-            fontSize: '0.75rem',
-            fontWeight: '500',
-            color: 'white',
-            backgroundColor: 'var(--color-blue-600)',
-            borderRadius: '0.25rem',
-            padding: '0.25rem 0.5rem'
-          }}>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
+        style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          gap: '0.5rem',
+          marginBottom: '1.5rem' 
+        }}
+      >
+        {tags.map((tag, tagIndex) => (
+          <motion.span 
+            key={tagIndex} 
+            whileHover={{ scale: 1.1, backgroundColor: 'var(--color-blue-500)' }}
+            style={{ 
+              fontSize: '0.75rem',
+              fontWeight: '500',
+              color: 'white',
+              backgroundColor: 'var(--color-blue-600)',
+              borderRadius: '0.25rem',
+              padding: '0.25rem 0.5rem'
+            }}
+          >
             {tag}
-          </span>
+          </motion.span>
         ))}
-      </div>
+      </motion.div>
       
-      <div style={{ display: 'flex', gap: '1rem' }}>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+        style={{ display: 'flex', gap: '1rem' }}
+      >
         {github && (
-          <a 
+          <motion.a 
             href={github} 
             target="_blank"
             rel="noreferrer"
+            whileHover={{ 
+              scale: 1.1, 
+              color: isDarkMode ? 'white' : 'var(--color-blue-600)' 
+            }}
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
               gap: '0.5rem',
               color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)',
               textDecoration: 'none',
-              fontSize: '0.875rem',
-              transition: 'color 0.2s'
+              fontSize: '0.875rem'
             }}
-            onMouseOver={(e) => e.target.style.color = isDarkMode ? 'white' : 'var(--color-blue-600)'}
-            onMouseOut={(e) => e.target.style.color = isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)'}
           >
             <FaGithub /> View Code
-          </a>
+          </motion.a>
         )}
         
         {demo && (
-          <a 
+          <motion.a 
             href={demo} 
             target="_blank"
             rel="noreferrer"
+            whileHover={{ 
+              scale: 1.1, 
+              color: isDarkMode ? 'white' : 'var(--color-blue-600)' 
+            }}
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
               gap: '0.5rem',
               color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)',
               textDecoration: 'none',
-              fontSize: '0.875rem',
-              transition: 'color 0.2s'
+              fontSize: '0.875rem'
             }}
-            onMouseOver={(e) => e.target.style.color = isDarkMode ? 'white' : 'var(--color-blue-600)'}
-            onMouseOut={(e) => e.target.style.color = isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)'}
           >
             <FaExternalLinkAlt /> Live Demo
-          </a>
+          </motion.a>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -179,79 +223,88 @@ const Projects = () => {
     }
   ];
 
+  // Container animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  // Title animation variants
+  const titleVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.8, 
+        type: "spring", 
+        bounce: 0.4 
+      }
+    }
+  };
+
   return (
-    <section id="projects" style={{ 
-      padding: '5rem 0', 
-      backgroundColor: isDarkMode ? 'var(--color-primary)' : 'var(--color-primary-light)',
-      transition: 'background-color 0.3s ease'
-    }}>
+    <motion.section 
+      id="projects" 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
+      style={{ 
+        padding: '5rem 0', 
+        backgroundColor: isDarkMode ? 'var(--color-primary)' : 'var(--color-primary-light)',
+        transition: 'background-color 0.3s ease'
+      }}
+    >
       <div className="section-container">
-        <h2 style={{ 
-          fontSize: '2.5rem', 
-          fontWeight: '700', 
-          marginBottom: '1.5rem', 
-          textAlign: 'center',
-          color: isDarkMode ? 'white' : 'var(--color-text-light)'
-        }}>
+        <motion.h2 
+          variants={titleVariants}
+          style={{ 
+            fontSize: '2.5rem', 
+            fontWeight: '700', 
+            marginBottom: '1.5rem', 
+            textAlign: 'center',
+            color: isDarkMode ? 'white' : 'var(--color-text-light)'
+          }}
+        >
           My Projects
-        </h2>
-        <p style={{ 
-          fontSize: '1.125rem', 
-          color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)', 
-          maxWidth: '48rem', 
-          margin: '0 auto 1.5rem', 
-          textAlign: 'center' 
-        }}>
-          Here are some of my recent projects that showcase my skills and expertise
-        </p>
-        
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '2rem'
-        }}>
-          <a 
-            href="https://github.com/alidiamond1" 
-            target="_blank"
-            rel="noreferrer"
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.75rem',
-              color: 'white',
-              backgroundColor: isDarkMode ? '#333' : 'var(--color-blue-600)',
-              padding: '0.75rem 1.5rem',
-              borderRadius: '2rem',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              fontWeight: '500',
-              transition: 'transform 0.2s, background-color 0.3s',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.backgroundColor = isDarkMode ? '#444' : 'var(--color-blue-700)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.backgroundColor = isDarkMode ? '#333' : 'var(--color-blue-600)';
-            }}
-          >
-            <FaGithub size={20} /> View More Projects on GitHub
-          </a>
-        </div>
+        </motion.h2>
+        <motion.p 
+          variants={titleVariants}
+          style={{ 
+            fontSize: '1.125rem', 
+            color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)', 
+            maxWidth: '48rem', 
+            margin: '0 auto 3rem',
+            textAlign: 'center',
+            lineHeight: '1.7'
+          }}
+        >
+          Check out some of my most recent and notable projects. Each project demonstrates different skills and technologies.
+        </motion.p>
         
         <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-          gap: '2rem'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '2rem',
+          padding: '0 1rem'
         }}>
           {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard 
+              key={project.title}
+              {...project}
+              index={index}
+            />
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

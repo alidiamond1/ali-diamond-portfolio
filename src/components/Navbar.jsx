@@ -24,9 +24,11 @@ const Navbar = () => {
   const links = [
     { id: 1, link: '/', name: 'Home' },
     { id: 2, link: '/about', name: 'About' },
-    { id: 3, link: '/projects', name: 'Projects' },
-    { id: 4, link: '/skills', name: 'Skills' },
-    { id: 5, link: '/contact', name: 'Contact' },
+    { id: 3, link: '/education', name: 'Education' },
+    { id: 4, link: '/work-experience', name: 'Work Experience' },
+    { id: 5, link: '/projects', name: 'Projects' },
+    { id: 6, link: '/skills', name: 'Skills' },
+    { id: 7, link: '/contact', name: 'Contact' },
   ];
 
   const resumeUrl = "https://drive.google.com/file/d/1uU-QMtCDfKmrwsO6UWbCTiNv2_uw2BwB/view?usp=drive_link";
@@ -41,17 +43,24 @@ const Navbar = () => {
         alignItems: 'center',
         gap: '0.5rem',
         padding: '0.5rem 1rem',
-        borderRadius: '0.25rem',
-        backgroundColor: 'var(--color-blue-500)',
+        borderRadius: '0.5rem',
+        backgroundColor: 'var(--color-blue-600)',
         color: 'white',
-        fontWeight: '500',
+        fontWeight: '600',
         textDecoration: 'none',
-        transition: 'all 0.2s ease'
+        transition: 'all 0.3s ease',
+        boxShadow: isDarkMode ? '0 4px 6px rgba(0, 0, 0, 0.2)' : '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}
-      onMouseOver={(e) => e.target.style.backgroundColor = 'var(--color-blue-600)'}
-      onMouseOut={(e) => e.target.style.backgroundColor = 'var(--color-blue-500)'}
+      onMouseOver={(e) => {
+        e.currentTarget.style.backgroundColor = 'var(--color-blue-700)';
+        e.currentTarget.style.transform = 'translateY(-2px)';
+      }}
+      onMouseOut={(e) => {
+        e.currentTarget.style.backgroundColor = 'var(--color-blue-600)';
+        e.currentTarget.style.transform = 'translateY(0)';
+      }}
     >
-      <FaFileDownload /> Resume
+      <FaFileDownload /> Download CV
     </a>
   );
 
