@@ -29,7 +29,7 @@ const Navbar = () => {
     { id: 5, link: '/contact', name: 'Contact' },
   ];
 
-  const resumeUrl = "https://drive.google.com/file/d/1uU-QMtCDfKmrwsO6UWbCTiNv2_uw2BwB/view";
+  const resumeUrl = "https://drive.google.com/file/d/1uU-QMtCDfKmrwsO6UWbCTiNv2_uw2BwB/view?usp=drive_link";
 
   const ResumeButton = () => (
     <a 
