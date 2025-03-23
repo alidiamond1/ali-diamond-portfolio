@@ -117,7 +117,7 @@ const Hero = () => {
           lineHeight: '1.7',
           transition: 'color 0.3s ease'
         }}>
-          I build exceptional digital experiences for the web and mobile, specializing in both frontend and backend development with React, Node.js, and Flutter.
+          I build exceptional digital experiences for the web and mobile, specializing in both frontend and backend development with React, Node.js, Flutter, and PHP. As a versatile developer, I bring expertise in crafting robust web applications and dynamic mobile solutions.
         </p>
 
         <div style={{

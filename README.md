@@ -74,7 +74,7 @@ src/
 
 - **GitHub**: [alidiamond1](https://github.com/alidiamond1)
 - **Email**: Calilucky3@gmail.com
-- **LinkedIn**: [https://www.linkedin.com/in/ali-diamond-19b8052b9/](https://www.linkedin.com/in/ali-diamond-19b8052b9/)
+- **LinkedIn**: [Alidiamond](https://www.linkedin.com/in/ali-diamond-19b8052b9/)
 
 
 ## License
