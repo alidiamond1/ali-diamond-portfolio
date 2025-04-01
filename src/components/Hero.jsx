@@ -248,7 +248,7 @@ const Hero = () => {
           </motion.a>
           <motion.a 
             whileHover={{ scale: 1.2, y: -5 }} 
-            href="https://linkedin.com/" 
+            href="https://www.linkedin.com/in/ali-diamond-19b8052b9/" 
             target="_blank" 
             rel="noopener noreferrer" 
             style={{
@@ -263,7 +263,7 @@ const Hero = () => {
           </motion.a>
           <motion.a 
             whileHover={{ scale: 1.2, y: -5 }} 
-            href="https://twitter.com/" 
+            href="https://x.com/Alidiamond143/" 
             target="_blank" 
             rel="noopener noreferrer" 
             style={{
