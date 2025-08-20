@@ -13,7 +13,7 @@ const About = () => {
           About Me
         </h2>
         <p style={{ fontSize: '1.125rem', color: 'var(--color-secondary)', maxWidth: '48rem', margin: '0 auto 3rem', textAlign: 'center' }}>
-          Full-Stack Developer | Mobile App Developer
+          Full-Stack Developer | AI/ML Engineer | Mobile App Developer
         </p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -99,10 +99,11 @@ const About = () => {
               Professional Summary
             </h3>
             <p style={{ fontSize: '1rem', color: 'var(--color-secondary)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-              Dynamic Full-Stack Developer with proven expertise at Daluul Tech, specializing in web and mobile application development.
-              I leverage a versatile tech stack including React.js, Node.js, PHP, and Flutter to build responsive, user-centered 
-              applications with optimized performance. Currently expanding my skills in Machine Learning, Deep Learning, Computer Vision, 
-              and NLP to create more intelligent, data-driven solutions.
+              Dynamic AI/ML Engineer and Full-Stack Developer with proven expertise at Daluul Tech, specializing in intelligent 
+              web and mobile application development. I leverage cutting-edge technologies including TensorFlow, PyTorch, 
+              Scikit-learn alongside React.js, Node.js, PHP, and Flutter to build AI-powered, responsive applications. 
+              My expertise spans Machine Learning, Deep Learning, Computer Vision, NLP, and deploying production-ready AI models 
+              to create intelligent, data-driven solutions that solve real-world problems.
             </p>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -111,11 +112,13 @@ const About = () => {
                   🚀 Core Skills
                 </h4>
                 <ul style={{ paddingLeft: '1.5rem', color: 'var(--color-secondary)', display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem' }}>
+                  <li>AI/ML: TensorFlow, PyTorch, Scikit-learn, OpenCV</li>
+                  <li>Data Science: Pandas, NumPy, Jupyter, Matplotlib</li>
                   <li>Front-end: React.js, Next.js, Tailwind CSS</li>
                   <li>Back-end: Node.js, Express, Spring Boot, PHP</li>
                   <li>Mobile: Flutter, React Native</li>
                   <li>Database: MongoDB, MySQL, PostgreSQL</li>
-                  <li>Advanced: Machine Learning, AI Integration</li>
+                  <li>Specialties: Computer Vision, NLP, Predictive Analytics</li>
                 </ul>
               </div>
               
@@ -125,16 +128,19 @@ const About = () => {
                 </h4>
                 <ul style={{ paddingLeft: '1.5rem', color: 'var(--color-secondary)' }}>
                   <li style={{ marginBottom: '0.5rem' }}>
+                    <span style={{ fontWeight: '500' }}>Student Performance Predictor</span> - AI-powered academic performance prediction using ML algorithms
+                  </li>
+                  <li style={{ marginBottom: '0.5rem' }}>
+                    <span style={{ fontWeight: '500' }}>AI Image Recognition System</span> - Deep learning application for image classification and object detection
+                  </li>
+                  <li style={{ marginBottom: '0.5rem' }}>
+                    <span style={{ fontWeight: '500' }}>NLP Text Analyzer</span> - Comprehensive NLP tool with sentiment analysis and text summarization
+                  </li>
+                  <li style={{ marginBottom: '0.5rem' }}>
                     <span style={{ fontWeight: '500' }}>TaskTracker</span> - Personal Task Management System with collaboration features
                   </li>
-                  <li style={{ marginBottom: '0.5rem' }}>
-                    <span style={{ fontWeight: '500' }}>Personal Blog Platform</span> - Modern content management system with authentication
-                  </li>
-                  <li style={{ marginBottom: '0.5rem' }}>
-                    <span style={{ fontWeight: '500' }}>Student Performance Predictor</span> - ML-based academic analysis tool
-                  </li>
                   <li>
-                    <span style={{ fontWeight: '500' }}>AI Language Tutor</span> - Interactive language learning with personalized paths
+                    <span style={{ fontWeight: '500' }}>AI Language Tutor</span> - Interactive language learning with personalized ML-driven paths
                   </li>
                 </ul>
               </div>
@@ -144,8 +150,10 @@ const About = () => {
                   🌱 Current Focus
                 </h4>
                 <p style={{ color: 'var(--color-secondary)', lineHeight: '1.7' }}>
-                  Currently enhancing my skills in Machine Learning and AI integration with web applications, while exploring 
-                  Next.js for production-ready applications and React Native for cross-platform mobile development.
+                  Currently specializing in advanced AI/ML techniques including transformer models, reinforcement learning, 
+                  and MLOps for production deployment. Actively working on deploying AI models at scale, integrating pre-trained 
+                  models (BERT, GPT, YOLO) into production systems, and exploring cutting-edge developments in generative AI 
+                  and computer vision applications.
                 </p>
               </div>
             </div>

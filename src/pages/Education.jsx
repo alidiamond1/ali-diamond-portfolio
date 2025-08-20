@@ -111,21 +111,23 @@ const Education = () => {
             
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
               <h4 style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-blue-500)' }}>
-                Bachelor of Computer Science
+                AI & Machine Learning Specialization
               </h4>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-secondary)' }}>
-                Expected August 2025
+                2023 - 2024
               </p>
             </div>
             <p style={{ fontSize: '1.125rem', marginBottom: '0.5rem' }}>
-              Jamhuriya University of Science and Technology
+              Multiple Online Platforms (Coursera, edX, Udemy)
             </p>
             <p style={{ color: 'var(--color-secondary)', marginBottom: '0.75rem' }}>
-              Computer Science & Software Engineering
+              Machine Learning, Deep Learning, Computer Vision & NLP
             </p>
             <ul style={{ paddingLeft: '1.5rem', color: 'var(--color-secondary)' }}>
-              <li style={{ marginBottom: '0.5rem' }}>Focused on software development, mobile app development, and database management.</li>
-              <li>Gained hands-on experience in Flutter, full-stack web development, and cloud computing.</li>
+              <li style={{ marginBottom: '0.5rem' }}>Completed Stanford's Machine Learning Course by Andrew Ng</li>
+              <li style={{ marginBottom: '0.5rem' }}>Deep Learning Specialization with TensorFlow and PyTorch</li>
+              <li style={{ marginBottom: '0.5rem' }}>Computer Vision and OpenCV for image processing</li>
+              <li>Natural Language Processing with BERT and Transformers</li>
             </ul>
           </motion.div>
           
@@ -146,6 +148,55 @@ const Education = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
+              style={{ 
+                position: 'absolute',
+                left: '6px',
+                top: '10px',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--color-blue-500)',
+                zIndex: 2
+              }} 
+            />
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <h4 style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-blue-500)' }}>
+                Bachelor of Computer Science
+              </h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-secondary)' }}>
+                Expected August 2025
+              </p>
+            </div>
+            <p style={{ fontSize: '1.125rem', marginBottom: '0.5rem' }}>
+              Jamhuriya University of Science and Technology
+            </p>
+            <p style={{ color: 'var(--color-secondary)', marginBottom: '0.75rem' }}>
+              Computer Science & Software Engineering
+            </p>
+            <ul style={{ paddingLeft: '1.5rem', color: 'var(--color-secondary)' }}>
+              <li style={{ marginBottom: '0.5rem' }}>Focused on software development, mobile app development, AI/ML, and database management.</li>
+              <li>Gained hands-on experience in Flutter, full-stack web development, machine learning, and cloud computing.</li>
+            </ul>
+          </motion.div>
+          
+          <motion.div 
+            variants={itemVariants}
+            style={{ 
+              marginBottom: '2rem', 
+              position: 'relative',
+              paddingLeft: '40px'
+            }}
+            whileHover={{ 
+              x: 10, 
+              transition: { duration: 0.3 } 
+            }}
+          >
+            {/* Timeline dot */}
+            <motion.div 
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.4, duration: 0.5 }}
               style={{ 
                 position: 'absolute',
                 left: '6px',

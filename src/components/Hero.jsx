@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp, FaTelegram } from 'react-icons/fa';
 import { useTheme } from '../contexts/ThemeContext';
 import profileImage from '../assets/images/CALI NUUR.jpg';
 import { motion } from 'framer-motion';
@@ -145,7 +145,7 @@ const Hero = () => {
             marginBottom: '2rem'
           }}
         >
-          Full-Stack Developer | Mobile App Developer
+          Full-Stack Developer | AI/ML Engineer | Mobile App Developer
         </motion.p>
 
         <motion.p 
@@ -161,7 +161,7 @@ const Hero = () => {
             transition: 'color 0.3s ease'
           }}
         >
-          I build exceptional digital experiences for the web and mobile, specializing in both frontend and backend development with React, Node.js, Flutter, and PHP. As a versatile developer, I bring expertise in crafting robust web applications and dynamic mobile solutions.
+          I build exceptional digital experiences for the web and mobile, specializing in AI/ML integration, full-stack development with React, Node.js, Flutter, and PHP. As a versatile developer, I bring expertise in machine learning, deep learning, computer vision, and crafting intelligent applications that solve real-world problems.
         </motion.p>
 
         <motion.div 
@@ -275,6 +275,36 @@ const Hero = () => {
             onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-secondary)' : '#4b5563'}
           >
             <FaTwitter />
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.2, y: -5 }} 
+            href="https://wa.me/252619899733" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{
+              fontSize: '1.5rem',
+              color: isDarkMode ? 'var(--color-secondary)' : '#4b5563',
+              transition: 'color 0.3s ease'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
+            onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-secondary)' : '#4b5563'}
+          >
+            <FaWhatsapp />
+          </motion.a>
+          <motion.a 
+            whileHover={{ scale: 1.2, y: -5 }} 
+            href="https://t.me/Alidiamond10" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{
+              fontSize: '1.5rem',
+              color: isDarkMode ? 'var(--color-secondary)' : '#4b5563',
+              transition: 'color 0.3s ease'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
+            onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-secondary)' : '#4b5563'}
+          >
+            <FaTelegram />
           </motion.a>
         </motion.div>
       </div>

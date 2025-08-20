@@ -12,7 +12,11 @@ import {
   FaAws,
   FaPython,
   FaAndroid,
-  FaAppStore
+  FaAppStore,
+  FaBrain,
+  FaRobot,
+  FaChartLine,
+  FaEye
 } from 'react-icons/fa';
 import { 
   SiMongodb, 
@@ -30,7 +34,16 @@ import {
   SiTypescript,
   SiNextdotjs,
   SiRedux,
-  SiSpringboot
+  SiSpringboot,
+  SiTensorflow,
+  SiPytorch,
+  SiOpencv,
+  SiJupyter,
+  SiNumpy,
+  SiPandas,
+  SiScikitlearn,
+  SiKeras,
+  SiGooglecloud
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
@@ -261,6 +274,23 @@ const Skills = () => {
     { icon: <FaDocker />, title: 'Docker', level: 60 }
   ];
 
+  const aiMlSkills = [
+    { icon: <SiTensorflow />, title: 'TensorFlow', level: 85 },
+    { icon: <SiPytorch />, title: 'PyTorch', level: 82 },
+    { icon: <SiScikitlearn />, title: 'Scikit-learn', level: 90 },
+    { icon: <SiKeras />, title: 'Keras', level: 80 },
+    { icon: <FaPython />, title: 'Python for ML', level: 88 },
+    { icon: <SiNumpy />, title: 'NumPy', level: 85 },
+    { icon: <SiPandas />, title: 'Pandas', level: 87 },
+    { icon: <SiOpencv />, title: 'OpenCV', level: 75 },
+    { icon: <SiJupyter />, title: 'Jupyter', level: 85 },
+    { icon: <FaBrain />, title: 'Deep Learning', level: 80 },
+    { icon: <FaRobot />, title: 'NLP', level: 78 },
+    { icon: <FaChartLine />, title: 'Data Analysis', level: 85 },
+    { icon: <FaEye />, title: 'Computer Vision', level: 75 },
+    { icon: <SiGooglecloud />, title: 'Google AI APIs', level: 70 }
+  ];
+
   // Animation variants - keep stagger logic but ensure initial render
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -325,8 +355,8 @@ const Skills = () => {
             lineHeight: '1.7'
           }}
         >
-          I've developed expertise across multiple technologies in web and mobile development,
-          focusing on creating responsive, user-friendly applications with clean code and optimal performance.
+          I've developed expertise across multiple technologies in web and mobile development, AI & Machine Learning,
+          focusing on creating intelligent, responsive, user-friendly applications with clean code and optimal performance.
         </motion.p>
         
         <motion.div
@@ -342,8 +372,9 @@ const Skills = () => {
           <SkillCategory title="Frontend Development" skills={frontendSkills} index={0} />
           <SkillCategory title="Backend Development" skills={backendSkills} index={1} />
           <SkillCategory title="Mobile App Development" skills={mobileSkills} index={2} />
-          <SkillCategory title="Database Management" skills={databaseSkills} index={3} />
-          <SkillCategory title="DevOps & Deployment" skills={deploymentSkills} index={4} />
+          <SkillCategory title="AI & Machine Learning" skills={aiMlSkills} index={3} />
+          <SkillCategory title="Database Management" skills={databaseSkills} index={4} />
+          <SkillCategory title="Deployment" skills={deploymentSkills} index={5} />
         </motion.div>
       </div>
     </motion.section>
