@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
 import profileImage from '../assets/images/CALI NUUR.jpg';
+import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 
 const About = () => {
   const { isDarkMode } = useTheme();
@@ -255,7 +256,7 @@ const About = () => {
                 }}
               >
                 <span style={{ fontSize: '2rem' }}>
-                  <i className="fab fa-github"></i>
+                  <FaGithub />
                 </span>
                 <span>GitHub</span>
                 <span style={{ fontSize: '0.875rem' }}>@Alidiamond</span>
@@ -285,7 +286,7 @@ const About = () => {
                 }}
               >
                 <span style={{ fontSize: '2rem' }}>
-                  <i className="fab fa-linkedin"></i>
+                  <FaLinkedin />
                 </span>
                 <span>LinkedIn</span>
                 <span style={{ fontSize: '0.875rem' }}>@Alidiamond</span>
@@ -315,7 +316,7 @@ const About = () => {
                 }}
               >
                 <span style={{ fontSize: '2rem' }}>
-                  <i className="fab fa-twitter"></i>
+                  <FaTwitter />
                 </span>
                 <span>Twitter</span>
                 <span style={{ fontSize: '0.875rem' }}>@Alidiamond143</span>
@@ -345,7 +346,7 @@ const About = () => {
                 }}
               >
                 <span style={{ fontSize: '2rem' }}>
-                  <i className="fab fa-facebook"></i>
+                  <FaFacebook />
                 </span>
                 <span>Facebook</span>
                 <span style={{ fontSize: '0.875rem' }}>@AliNorAbdulle10</span>
