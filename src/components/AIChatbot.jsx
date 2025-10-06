@@ -1,6 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
+import { 
+  FaRobot, 
+  FaTimes, 
+  FaPaperPlane, 
+  FaGithub, 
+  FaLinkedin, 
+  FaTwitter, 
+  FaFacebook, 
+  FaEnvelope, 
+  FaPhone,
+  FaGlobe,
+  FaExternalLinkAlt 
+} from 'react-icons/fa';
 import { useTheme } from '../contexts/ThemeContext';
 import { portfolioContext } from '../data/portfolioContext';
 
@@ -43,6 +55,29 @@ const AIChatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Function to get icon for link type
+  const getLinkIcon = (url, label = '') => {
+    const lowerUrl = url.toLowerCase();
+    const lowerLabel = label.toLowerCase();
+    
+    if (lowerUrl.includes('github.com') || lowerLabel.includes('github')) {
+      return <FaGithub style={{ fontSize: '16px' }} />;
+    } else if (lowerUrl.includes('linkedin.com') || lowerLabel.includes('linkedin')) {
+      return <FaLinkedin style={{ fontSize: '16px' }} />;
+    } else if (lowerUrl.includes('twitter.com') || lowerLabel.includes('twitter')) {
+      return <FaTwitter style={{ fontSize: '16px' }} />;
+    } else if (lowerUrl.includes('facebook.com') || lowerLabel.includes('facebook')) {
+      return <FaFacebook style={{ fontSize: '16px' }} />;
+    } else if (lowerUrl.includes('mailto:') || lowerLabel.includes('email')) {
+      return <FaEnvelope style={{ fontSize: '16px' }} />;
+    } else if (lowerUrl.includes('tel:') || lowerLabel.includes('phone')) {
+      return <FaPhone style={{ fontSize: '16px' }} />;
+    } else if (lowerUrl.includes('netlify.app') || lowerUrl.includes('vercel.app') || lowerLabel.includes('portfolio')) {
+      return <FaGlobe style={{ fontSize: '16px' }} />;
+    }
+    return <FaExternalLinkAlt style={{ fontSize: '14px' }} />;
+  };
+
   // Function to format text with links, bold, lists, etc.
   const formatMessage = (text) => {
     const lines = text.split('\n');
@@ -51,6 +86,91 @@ const AIChatbot = () => {
     lines.forEach((line, lineIndex) => {
       if (!line.trim()) {
         elements.push(<br key={`br-${lineIndex}`} />);
+        return;
+      }
+
+      // Check if line contains a labeled link (e.g., "GitHub: https://...")
+      const labeledLinkMatch = line.match(/^([\w\s]+):\s*(https?:\/\/[^\s]+|[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+|\+?\d[\d\s-]+)$/);
+      
+      if (labeledLinkMatch) {
+        const label = labeledLinkMatch[1].trim();
+        const link = labeledLinkMatch[2].trim();
+        const isEmail = link.includes('@');
+        const isPhone = link.match(/^\+?\d/);
+        const href = isEmail ? `mailto:${link}` : isPhone ? `tel:${link}` : link;
+        
+        elements.push(
+          <div 
+            key={`labeled-link-${lineIndex}`} 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '10px',
+              marginBottom: '8px',
+              padding: '8px',
+              backgroundColor: isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)',
+              borderRadius: '8px',
+              border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.15)'}`,
+              transition: 'all 0.2s ease'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = isDarkMode ? 'rgba(102, 126, 234, 0.15)' : 'rgba(102, 126, 234, 0.1)';
+              e.currentTarget.style.transform = 'translateX(2px)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)';
+              e.currentTarget.style.transform = 'translateX(0)';
+            }}
+          >
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              borderRadius: '6px',
+              backgroundColor: '#667eea',
+              color: 'white',
+              flexShrink: 0
+            }}>
+              {getLinkIcon(link, label)}
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ 
+                fontSize: '11px', 
+                color: isDarkMode ? '#aaa6c3' : '#64748b',
+                marginBottom: '2px',
+                fontWeight: '500',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
+                {label}
+              </div>
+              <a
+                href={href}
+                target={isEmail || isPhone ? undefined : "_blank"}
+                rel={isEmail || isPhone ? undefined : "noopener noreferrer"}
+                style={{
+                  color: '#667eea',
+                  textDecoration: 'none',
+                  fontWeight: '500',
+                  fontSize: '13px',
+                  wordBreak: 'break-all'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.color = '#764ba2';
+                  e.currentTarget.style.textDecoration = 'underline';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.color = '#667eea';
+                  e.currentTarget.style.textDecoration = 'none';
+                }}
+              >
+                {link}
+              </a>
+            </div>
+          </div>
+        );
         return;
       }
 
@@ -106,14 +226,24 @@ const AIChatbot = () => {
                 rel="noopener noreferrer"
                 style={{
                   color: '#667eea',
-                  textDecoration: 'underline',
+                  textDecoration: 'none',
                   fontWeight: '500',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px'
                 }}
-                onMouseOver={(e) => e.currentTarget.style.color = '#764ba2'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#667eea'}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.color = '#764ba2';
+                  e.currentTarget.style.textDecoration = 'underline';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.color = '#667eea';
+                  e.currentTarget.style.textDecoration = 'none';
+                }}
               >
-                {match.text}
+                {getLinkIcon(match.text)}
+                <span>{match.text}</span>
               </a>
             );
           } else if (match.type === 'email') {
@@ -123,14 +253,24 @@ const AIChatbot = () => {
                 href={`mailto:${match.text}`}
                 style={{
                   color: '#667eea',
-                  textDecoration: 'underline',
+                  textDecoration: 'none',
                   fontWeight: '500',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px'
                 }}
-                onMouseOver={(e) => e.currentTarget.style.color = '#764ba2'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#667eea'}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.color = '#764ba2';
+                  e.currentTarget.style.textDecoration = 'underline';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.color = '#667eea';
+                  e.currentTarget.style.textDecoration = 'none';
+                }}
               >
-                {match.text}
+                <FaEnvelope style={{ fontSize: '14px' }} />
+                <span>{match.text}</span>
               </a>
             );
           } else if (match.type === 'bold') {
