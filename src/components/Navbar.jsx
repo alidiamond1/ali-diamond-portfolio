@@ -42,7 +42,7 @@ const Navbar = () => {
     { id: 7, link: '/contact', name: 'Contact' },
   ];
 
-  const resumeUrl = "https://drive.google.com/file/d/1uU-QMtCDfKmrwsO6UWbCTiNv2_uw2BwB/view?usp=drive_link";
+  const resumeUrl = "https://drive.google.com/file/d/1vt2sgUC5W1rTzyQ7uPtsm2oMi_I9z24q/view?usp=drive_link";
 
   const ResumeButton = ({ mobile = false }) => (
     <motion.a 
