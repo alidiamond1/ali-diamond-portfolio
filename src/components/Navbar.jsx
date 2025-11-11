@@ -37,9 +37,10 @@ const Navbar = () => {
     { id: 2, link: '/about', name: 'About' },
     { id: 3, link: '/education', name: 'Education' },
     { id: 4, link: '/work-experience', name: 'Work Experience' },
-    { id: 5, link: '/projects', name: 'Projects' },
-    { id: 6, link: '/skills', name: 'Skills' },
-    { id: 7, link: '/contact', name: 'Contact' },
+    { id: 5, link: '/services', name: 'Services' },
+    { id: 6, link: '/projects', name: 'Projects' },
+    { id: 7, link: '/skills', name: 'Skills' },
+    { id: 8, link: '/contact', name: 'Contact' },
   ];
 
   const resumeUrl = "https://drive.google.com/file/d/1vt2sgUC5W1rTzyQ7uPtsm2oMi_I9z24q/view?usp=drive_link";
