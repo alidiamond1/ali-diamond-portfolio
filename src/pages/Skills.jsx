@@ -12,7 +12,11 @@ import {
   FaAws,
   FaPython,
   FaAndroid,
-  FaAppStore
+  FaAppStore,
+  FaBrain,
+  FaRobot,
+  FaChartLine,
+  FaEye
 } from 'react-icons/fa';
 import { 
   SiMongodb, 
@@ -30,7 +34,16 @@ import {
   SiTypescript,
   SiNextdotjs,
   SiRedux,
-  SiSpringboot
+  SiSpringboot,
+  SiTensorflow,
+  SiPytorch,
+  SiOpencv,
+  SiJupyter,
+  SiNumpy,
+  SiPandas,
+  SiScikitlearn,
+  SiKeras,
+  SiGooglecloud
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
@@ -50,13 +63,11 @@ const SkillCard = ({ icon, title, level, index }) => {
         stiffness: 100 
       }}
       whileHover={{ 
-        y: -10,
-        boxShadow: isDarkMode 
-          ? '0 20px 40px -15px rgba(0, 0, 0, 0.7)' 
-          : '0 20px 40px -15px rgba(0, 0, 0, 0.3)'
+        y: -5,
+        transition: { duration: 0.2 }
       }}
       style={{ 
-        backgroundColor: isDarkMode ? 'var(--color-tertiary)' : 'var(--color-tertiary-light)', 
+        backgroundColor: isDarkMode ? '#151030' : '#e2e8f0', 
         borderRadius: '1rem',
         padding: '1.5rem',
         display: 'flex',
@@ -66,7 +77,10 @@ const SkillCard = ({ icon, title, level, index }) => {
         boxShadow: isDarkMode 
           ? '0 10px 30px -15px rgba(0, 0, 0, 0.5)' 
           : '0 10px 30px -15px rgba(0, 0, 0, 0.2)',
-        transition: 'background-color 0.3s, box-shadow 0.3s'
+        transition: 'all 0.3s ease',
+        border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.1)',
+        minHeight: '200px',
+        justifyContent: 'center'
       }}
     >
       <motion.div 
@@ -85,8 +99,8 @@ const SkillCard = ({ icon, title, level, index }) => {
           transition: { duration: 0.2 } 
         }}
         style={{ 
-          fontSize: '3rem', 
-          color: 'var(--color-blue-500)',
+          fontSize: 'clamp(2.5rem, 5vw, 3rem)', 
+          color: '#3b82f6',
           filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))'
         }}
       >
@@ -99,10 +113,11 @@ const SkillCard = ({ icon, title, level, index }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: index * 0.05 + 0.3 }}
         style={{ 
-          fontSize: '1.25rem', 
+          fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', 
           fontWeight: '600', 
           textAlign: 'center',
-          color: isDarkMode ? 'white' : 'var(--color-text-light)' 
+          color: isDarkMode ? '#ffffff' : '#1e293b',
+          marginBottom: '0.5rem'
         }}
       >
         {title}
@@ -110,10 +125,11 @@ const SkillCard = ({ icon, title, level, index }) => {
       
       <div style={{ 
         width: '100%', 
-        backgroundColor: isDarkMode ? '#0f0f20' : '#e2e8f0', 
+        backgroundColor: isDarkMode ? '#0f0f20' : '#cbd5e1', 
         borderRadius: '9999px', 
-        height: '10px', 
-        overflow: 'hidden' 
+        height: '8px', 
+        overflow: 'hidden',
+        marginBottom: '0.5rem'
       }}>
         <motion.div 
           initial={{ width: 0 }}
@@ -126,7 +142,7 @@ const SkillCard = ({ icon, title, level, index }) => {
           }}
           style={{ 
             height: '100%', 
-            backgroundColor: 'var(--color-blue-600)',
+            backgroundColor: '#3b82f6',
             borderRadius: '9999px'
           }} 
         />
@@ -138,8 +154,8 @@ const SkillCard = ({ icon, title, level, index }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: index * 0.05 + 0.4 }}
         style={{ 
-          fontSize: '0.875rem', 
-          color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)',
+          fontSize: 'clamp(0.75rem, 2vw, 0.875rem)', 
+          color: isDarkMode ? '#aaa6c3' : '#64748b',
           fontWeight: '500'
         }}
       >
@@ -150,34 +166,36 @@ const SkillCard = ({ icon, title, level, index }) => {
 };
 
 const SkillCategory = ({ title, skills, index }) => {
+  const { isDarkMode } = useTheme();
+  
   return (
     <motion.div 
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ 
-        duration: 0.7,
-        delay: index * 0.2,
+        duration: 0.6,
+        delay: index * 0.1,
         type: "spring"
       }}
-      style={{ marginBottom: '3rem' }}
+      style={{ marginBottom: '2rem' }}
     >
       <motion.h3 
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ 
           duration: 0.5, 
-          delay: index * 0.2,
+          delay: index * 0.1,
           type: "spring",
           stiffness: 100 
         }}
         style={{ 
-          fontSize: '1.5rem', 
+          fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', 
           fontWeight: '600', 
           marginBottom: '1.5rem',
-          color: 'var(--color-blue-500)',
-          borderBottom: '2px solid var(--color-blue-500)',
+          color: '#3b82f6',
+          borderBottom: '2px solid #3b82f6',
           paddingBottom: '0.5rem',
           display: 'inline-block'
         }}
@@ -187,8 +205,12 @@ const SkillCategory = ({ title, skills, index }) => {
       
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
-        gap: '1.5rem'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+        gap: '1.5rem',
+        '@media (max-width: 640px)': {
+          gridTemplateColumns: '1fr',
+          gap: '1rem'
+        }
       }}>
         {skills.map((skill, i) => (
           <SkillCard key={i} {...skill} index={i} />
@@ -261,6 +283,23 @@ const Skills = () => {
     { icon: <FaDocker />, title: 'Docker', level: 60 }
   ];
 
+  const aiMlSkills = [
+    { icon: <SiTensorflow />, title: 'TensorFlow', level: 85 },
+    { icon: <SiPytorch />, title: 'PyTorch', level: 82 },
+    { icon: <SiScikitlearn />, title: 'Scikit-learn', level: 90 },
+    { icon: <SiKeras />, title: 'Keras', level: 80 },
+    { icon: <FaPython />, title: 'Python for ML', level: 88 },
+    { icon: <SiNumpy />, title: 'NumPy', level: 85 },
+    { icon: <SiPandas />, title: 'Pandas', level: 87 },
+    { icon: <SiOpencv />, title: 'OpenCV', level: 75 },
+    { icon: <SiJupyter />, title: 'Jupyter', level: 85 },
+    { icon: <FaBrain />, title: 'Deep Learning', level: 80 },
+    { icon: <FaRobot />, title: 'NLP', level: 78 },
+    { icon: <FaChartLine />, title: 'Data Analysis', level: 85 },
+    { icon: <FaEye />, title: 'Computer Vision', level: 75 },
+    { icon: <SiGooglecloud />, title: 'Google AI APIs', level: 70 }
+  ];
+
   // Animation variants - keep stagger logic but ensure initial render
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -287,66 +326,65 @@ const Skills = () => {
   };
 
   return (
-    <motion.section 
+    <section 
       id="skills" 
-      initial="hidden"
-      animate="visible" 
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={containerVariants}
       style={{ 
-        padding: '5rem 0', 
-        backgroundColor: isDarkMode ? 'var(--color-primary)' : 'var(--color-primary-light)',
+        padding: '3rem 0', 
+        backgroundColor: isDarkMode ? '#050816' : '#f8fafc',
+        minHeight: '100vh',
         transition: 'background-color 0.3s ease'
       }}
     >
-      <div className="section-container">
+      <div style={{
+        maxWidth: '1280px',
+        width: '90%',
+        margin: '0 auto',
+        padding: '0 1rem'
+      }}>
         <motion.h2 
-          variants={titleVariants}
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.7, type: "spring", bounce: 0.4 }}
           style={{ 
-            fontSize: '2.5rem', 
+            fontSize: 'clamp(2rem, 5vw, 2.5rem)', 
             fontWeight: '700', 
             marginBottom: '1.5rem', 
             textAlign: 'center',
-            color: isDarkMode ? 'white' : 'var(--color-text-light)'
+            color: isDarkMode ? '#ffffff' : '#1e293b'
           }}
         >
           My Skills
         </motion.h2>
         
         <motion.p 
-          variants={titleVariants}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           style={{ 
-            fontSize: '1.125rem', 
-            color: isDarkMode ? 'var(--color-secondary)' : 'var(--color-secondary-light)', 
+            fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', 
+            color: isDarkMode ? '#aaa6c3' : '#64748b', 
             maxWidth: '48rem', 
             margin: '0 auto 3rem', 
             textAlign: 'center',
             lineHeight: '1.7'
           }}
         >
-          I've developed expertise across multiple technologies in web and mobile development,
-          focusing on creating responsive, user-friendly applications with clean code and optimal performance.
+          I've developed expertise across multiple technologies in web and mobile development, AI & Machine Learning,
+          focusing on creating intelligent, responsive, user-friendly applications with clean code and optimal performance.
         </motion.p>
         
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ 
-            duration: 0.7,
-            delay: 0.2,
-            type: "spring"
-          }}
-        >
-          <SkillCategory title="Frontend Development" skills={frontendSkills} index={0} />
-          <SkillCategory title="Backend Development" skills={backendSkills} index={1} />
-          <SkillCategory title="Mobile App Development" skills={mobileSkills} index={2} />
-          <SkillCategory title="Database Management" skills={databaseSkills} index={3} />
-          <SkillCategory title="DevOps & Deployment" skills={deploymentSkills} index={4} />
-        </motion.div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <SkillCategory title="Frontend Development" skills={frontendSkills} index={1} />
+          <SkillCategory title="Backend Development" skills={backendSkills} index={2} />
+          <SkillCategory title="Mobile App Development" skills={mobileSkills} index={3} />
+          <SkillCategory title="Database Management" skills={databaseSkills} index={4} />
+          <SkillCategory title="AI & Machine Learning" skills={aiMlSkills} index={0} />
+          <SkillCategory title="DevOps & Deployment" skills={deploymentSkills} index={5} />
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Education from './pages/Education';
 import WorkExperience from './pages/WorkExperience';
 import Services from './pages/Services';
+import AIChatbot from './components/AIChatbot';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/services" element={<Services />} />
           </Routes>
         </Layout>
+        <AIChatbot />
       </Router>
     </ThemeProvider>
   );
