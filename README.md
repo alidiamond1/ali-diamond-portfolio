@@ -7,15 +7,17 @@ This is my professional portfolio website showcasing my skills, projects, and ex
 ## Technologies Used
 
 - **Frontend**: React.js, Vite
+- **AI Integration**: Google Gemini 2.0 Flash API
 - **Styling**: CSS with custom styling system
 - **State Management**: React Context API
 - **Deployment**: Netlify, Vercel, GitHub Pages
-- **Other Tools**: React Icons, react-router-dom
+- **Other Tools**: React Icons, react-router-dom, @google/generative-ai
 
 ## Features
 
 - **Responsive Design**: Fully responsive across all device sizes
 - **Dark/Light Mode**: Theme toggle for user preference
+- **AI Chatbot**: Intelligent assistant powered by Google Gemini 2.0 Flash that can answer questions about skills, projects, and experience
 - **Project Showcase**: Detailed project cards with links to live demos and code
 - **Contact Form**: Direct communication channel
 - **Smooth Animations**: Enhanced user experience with smooth transitions
@@ -46,26 +48,42 @@ This is my professional portfolio website showcasing my skills, projects, and ex
    npm install
    ```
 
-3. **Run development server**
+3. **Set up environment variables**
+   
+   Create a `.env` file in the root directory and add your Gemini API key:
+   ```env
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+   
+   Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   
+   📖 **For detailed chatbot setup instructions, see [CHATBOT_SETUP.md](./CHATBOT_SETUP.md)**
+
+4. **Run development server**
    ```bash
    npm run dev
    ```
 
-4. **Build for production**
+5. **Build for production**
    ```bash
    npm run build
    ```
+   
+   **Note**: Don't forget to add `VITE_GEMINI_API_KEY` to your deployment platform's environment variables.
 
 ## Project Structure
 
 ```
 src/
-├── assets/        # Static assets (images, fonts)
-├── components/    # Reusable UI components
-├── contexts/      # React context providers
-├── pages/         # Page components
-├── styles/        # CSS styles
-└── App.jsx        # Main application component
+├── assets/           # Static assets (images, fonts)
+├── components/       # Reusable UI components
+│   └── AIChatbot.jsx # AI-powered chatbot component
+├── contexts/         # React context providers
+├── data/             # Portfolio data and context
+│   └── portfolioContext.js # AI chatbot knowledge base
+├── pages/            # Page components
+├── styles/           # CSS styles
+└── App.jsx           # Main application component
 ```
 
 ## Contact

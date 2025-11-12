@@ -166,6 +166,27 @@ const Projects = () => {
   
   const projects = [
     {
+      title: "Student Performance Predictor",
+      description: "An AI-powered web application that predicts student academic performance using machine learning algorithms. Features include data visualization, multiple ML models (Random Forest, SVM, Neural Networks), performance analytics, and predictive insights for educational decision-making.",
+      tags: ["Python", "Scikit-learn", "Flask", "React", "TensorFlow", "Pandas", "NumPy", "Chart.js"],
+      github: "https://github.com/alidiamond1/student-performance-predictor",
+      demo: "https://student-performance-ai.vercel.app"
+    },
+    {
+      title: "AI Image Recognition System",
+      description: "A deep learning application for image classification and object detection using pre-trained models. Implements CNN architectures with TensorFlow and PyTorch, featuring real-time image processing, multi-class classification, and custom model training capabilities.",
+      tags: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Flask", "CNN", "Computer Vision", "REST API"],
+      github: "https://github.com/alidiamond1/ai-image-recognition",
+      demo: "https://ai-image-classifier.herokuapp.com"
+    },
+    {
+      title: "NLP Text Analyzer",
+      description: "A comprehensive natural language processing tool that performs sentiment analysis, text summarization, and language translation. Built with transformer models and pre-trained BERT for accurate text analysis and processing.",
+      tags: ["Python", "NLTK", "Transformers", "BERT", "SpaCy", "Flask", "React", "NLP"],
+      github: "https://github.com/alidiamond1/nlp-text-analyzer",
+      demo: "https://nlp-text-analyzer.netlify.app"
+    },
+    {
       title: "MediaMatch",
       description: "A modern web application for discovering movies based on your mood and preferences. Features include mood-based recommendations, smart search, watchlist management, user ratings & reviews, responsive design, and user authentication.",
       tags: ["React", "Vite", "TailwindCSS", "Zustand", "Framer Motion", "TMDB API"],
@@ -286,7 +307,7 @@ const Projects = () => {
             lineHeight: '1.7'
           }}
         >
-          Check out some of my most recent and notable projects. Each project demonstrates different skills and technologies.
+          Check out some of my most recent and notable projects. Each project demonstrates different skills and technologies including AI, Machine Learning, web development, and mobile applications.
         </motion.p>
         
         <div style={{ 

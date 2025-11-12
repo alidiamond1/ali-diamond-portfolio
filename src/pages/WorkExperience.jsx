@@ -111,10 +111,10 @@ const WorkExperience = () => {
             
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
               <h4 style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-blue-500)' }}>
-                Back-End Web Developer
+                AI/ML Engineer & Full-Stack Developer
               </h4>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-secondary)' }}>
-                March 2023 - Present
+                March 2024 - Present
               </p>
             </div>
             <p style={{ fontSize: '1.125rem', marginBottom: '0.5rem' }}>
@@ -132,7 +132,7 @@ const WorkExperience = () => {
                 transition={{ delay: 0.7, duration: 0.3 }}
                 style={{ marginBottom: '0.5rem' }}
               >
-                Developed secure authentication systems using JWT, Firebase Authentication, and OAuth.
+                Developed and deployed machine learning models using TensorFlow, PyTorch, and Scikit-learn for predictive analytics.
               </motion.li>
               <motion.li 
                 initial={{ x: -10, opacity: 0 }}
@@ -140,7 +140,7 @@ const WorkExperience = () => {
                 transition={{ delay: 0.8, duration: 0.3 }}
                 style={{ marginBottom: '0.5rem' }}
               >
-                Built scalable backend architectures using Node.js & Express.js, optimizing app performance by 30%.
+                Built AI-powered web applications with computer vision and NLP capabilities, improving user engagement by 45%.
               </motion.li>
               <motion.li 
                 initial={{ x: -10, opacity: 0 }}
@@ -148,14 +148,14 @@ const WorkExperience = () => {
                 transition={{ delay: 0.9, duration: 0.3 }}
                 style={{ marginBottom: '0.5rem' }}
               >
-                Designed and optimized SQL & NoSQL databases, ensuring efficient data management.
+                Integrated pre-trained models (BERT, GPT, CNN architectures) into production systems with REST APIs.
               </motion.li>
               <motion.li 
                 initial={{ x: -10, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1.0, duration: 0.3 }}
               >
-                Collaborated with open-source developers to improve project security.
+                Collaborated on data preprocessing, feature engineering, and model optimization for real-world applications.
               </motion.li>
             </motion.ul>
           </motion.div>
@@ -191,6 +191,86 @@ const WorkExperience = () => {
             
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
               <h4 style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-blue-500)' }}>
+                Back-End Web Developer
+              </h4>
+              <p style={{ fontSize: '0.875rem', color: 'var(--color-secondary)' }}>
+                March 2023 - March 2024
+              </p>
+            </div>
+            <p style={{ fontSize: '1.125rem', marginBottom: '0.5rem' }}>
+              Daluul Tech • Mogadishu, Somalia
+            </p>
+            <motion.ul 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.5 }}
+              style={{ marginTop: '0.75rem', paddingLeft: '1.5rem', color: 'var(--color-secondary)' }}
+            >
+              <motion.li 
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.0, duration: 0.3 }}
+                style={{ marginBottom: '0.5rem' }}
+              >
+                Developed secure authentication systems using JWT, Firebase Authentication, and OAuth.
+              </motion.li>
+              <motion.li 
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.1, duration: 0.3 }}
+                style={{ marginBottom: '0.5rem' }}
+              >
+                Built scalable backend architectures using Node.js & Express.js, optimizing app performance by 30%.
+              </motion.li>
+              <motion.li 
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.3 }}
+                style={{ marginBottom: '0.5rem' }}
+              >
+                Designed and optimized SQL & NoSQL databases, ensuring efficient data management.
+              </motion.li>
+              <motion.li 
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.3 }}
+              >
+                Collaborated with open-source developers to improve project security.
+              </motion.li>
+            </motion.ul>
+          </motion.div>
+          
+          <motion.div 
+            variants={itemVariants}
+            style={{ 
+              marginBottom: '2rem', 
+              position: 'relative',
+              paddingLeft: '40px'
+            }}
+            whileHover={{ 
+              x: 10, 
+              transition: { duration: 0.3 } 
+            }}
+          >
+            {/* Timeline dot */}
+            <motion.div 
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.4, duration: 0.5 }}
+              style={{ 
+                position: 'absolute',
+                left: '6px',
+                top: '10px',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--color-blue-500)',
+                zIndex: 2
+              }} 
+            />
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <h4 style={{ fontSize: '1.25rem', fontWeight: '500', color: 'var(--color-blue-500)' }}>
                 Mobile App Developer
               </h4>
               <p style={{ fontSize: '0.875rem', color: 'var(--color-secondary)' }}>
@@ -203,13 +283,13 @@ const WorkExperience = () => {
             <motion.ul 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
               style={{ marginTop: '0.75rem', paddingLeft: '1.5rem', color: 'var(--color-secondary)' }}
             >
               <motion.li 
                 initial={{ x: -10, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 1.1, duration: 0.3 }}
+                transition={{ delay: 1.3, duration: 0.3 }}
               >
                 Designed and developed cross-platform mobile applications using Flutter and Dart, ensuring smooth performance on both Android and iOS.
               </motion.li>
