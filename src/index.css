@@ -209,3 +209,15 @@ html:not(.dark-mode) ::-webkit-scrollbar-thumb {
 html:not(.dark-mode) ::-webkit-scrollbar-thumb:hover {
   background: rgba(124, 58, 237, 0.4);
 }
+
+/* Pulse animation for status indicator */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
