@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaTwitter, FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { useTheme } from '../contexts/ThemeContext';
 
-const Footer = () => {
+const Footer = ({ style = {} }) => {
   const { isDarkMode } = useTheme();
   
   const currentYear = new Date().getFullYear();
@@ -13,7 +13,8 @@ const Footer = () => {
       padding: '3rem 0',
       backgroundColor: isDarkMode ? 'var(--color-primary-dark)' : 'var(--color-primary-light-dark)',
       color: isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)',
-      transition: 'background-color 0.3s ease, color 0.3s ease'
+      transition: 'background-color 0.3s ease, color 0.3s ease, margin-left 0.3s ease-in-out',
+      ...style
     }}>
       <div className="section-container">
         <div style={{ 

@@ -166,12 +166,46 @@ main {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Add some spacing for page content to account for fixed navbar */
+/* Add some spacing for page content */
 main > section:first-child {
-  padding-top: 120px;
+  padding-top: 2rem;
+}
+
+/* Ensure content doesn't get hidden under navbar on mobile */
+@media (max-width: 1023px) {
+  main > section:first-child {
+    padding-top: 1rem;
+  }
 }
 
 /* Ensure content doesn't get hidden under navbar */
 html {
-  scroll-padding-top: 100px;
+  scroll-padding-top: 80px;
+}
+
+/* Custom Scrollbar Styling for Sidebar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.5);
+}
+
+html:not(.dark-mode) ::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.2);
+}
+
+html:not(.dark-mode) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.4);
 }
