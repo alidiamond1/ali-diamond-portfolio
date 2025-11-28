@@ -257,18 +257,26 @@ const Sidebar = ({ onExpandChange }) => {
           style={{
             width: '42px',
             height: '42px',
-            borderRadius: '12px',
-            background: colors.primaryGradient,
+            borderRadius: '50%',
+            background: 'white',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: 'white',
-            fontWeight: 'bold',
-            fontSize: '1.2rem',
             boxShadow: `0 4px 20px ${isDarkMode ? 'rgba(102, 126, 234, 0.4)' : 'rgba(99, 102, 241, 0.3)'}`,
+            overflow: 'hidden',
+            padding: '4px',
           }}
         >
-          A
+          <img 
+            src="/logo.png" 
+            alt="Logo" 
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '50%',
+            }}
+          />
         </motion.div>
         <span style={{ 
           fontSize: '1.25rem', 
@@ -541,19 +549,27 @@ const Sidebar = ({ onExpandChange }) => {
             style={{
               width: isExpanded ? '48px' : '52px',
               height: isExpanded ? '48px' : '52px',
-              borderRadius: '14px',
-              background: colors.primaryGradient,
+              borderRadius: '50%',
+              background: 'white',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
-              fontWeight: 'bold',
-              fontSize: isExpanded ? '1.3rem' : '1.4rem',
               boxShadow: `0 8px 30px ${isDarkMode ? 'rgba(102, 126, 234, 0.4)' : 'rgba(99, 102, 241, 0.35)'}`,
               flexShrink: 0,
+              overflow: 'hidden',
+              padding: isExpanded ? '6px' : '8px',
             }}
           >
-            A
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '50%',
+              }}
+            />
           </motion.div>
           <AnimatePresence>
             {isExpanded && (

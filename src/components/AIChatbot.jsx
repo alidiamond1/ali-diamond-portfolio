@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { 
-  FaRobot, 
   FaTimes, 
   FaPaperPlane, 
   FaGithub, 
@@ -13,13 +12,13 @@ import {
   FaGlobe,
   FaExternalLinkAlt 
 } from 'react-icons/fa';
+import { RiRobot2Fill } from 'react-icons/ri';
 import { useTheme } from '../contexts/ThemeContext';
 import { portfolioContext } from '../data/portfolioContext';
 
 const AIChatbot = () => {
   const { isDarkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [hasShownWelcome, setHasShownWelcome] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -28,23 +27,38 @@ const AIChatbot = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [isBubbleVisible, setIsBubbleVisible] = useState(true);
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
 
-  // Auto-open chatbot on first visit
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem('chatbot_welcomed');
-    if (!hasVisited && !hasShownWelcome) {
-      // Wait 2 seconds then open the chatbot
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        setHasShownWelcome(true);
-        sessionStorage.setItem('chatbot_welcomed', 'true');
-      }, 2000);
-      
-      return () => clearTimeout(timer);
+  const ROTATING_MESSAGES = [
+    {
+      title: "We're Online!",
+      text: "How may I help you today?"
+    },
+    {
+      title: "Portfolio Assistant",
+      text: "Ask me about Cali's projects! 🚀"
+    },
+    {
+      title: "Curious?",
+      text: "Learn about my skills & experience 💡"
+    },
+    {
+      title: "Say Hello! 👋",
+      text: "I'm here to answer your questions."
     }
-  }, [hasShownWelcome]);
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prev) => (prev + 1) % ROTATING_MESSAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-open removed as per user request
 
   // Scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -432,9 +446,9 @@ const AIChatbot = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '20px'
+                fontSize: '24px'
               }}>
-                <FaRobot />
+                <RiRobot2Fill />
               </div>
               <div>
                 <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '600' }}>AI Assistant</h3>
@@ -613,35 +627,132 @@ const AIChatbot = () => {
         </div>
       )}
 
+      {/* Rotating Message Bubble */}
+      {!isOpen && isBubbleVisible && (
+        <div style={{
+          position: 'absolute',
+          bottom: '10px',
+          right: '80px',
+          backgroundColor: isDarkMode ? '#1a1a2e' : 'white',
+          padding: '15px 20px',
+          borderRadius: '12px',
+          boxShadow: isDarkMode ? '0 4px 15px rgba(0,0,0,0.5)' : '0 4px 15px rgba(0,0,0,0.1)',
+          display: 'flex',
+          alignItems: 'center',
+          width: 'max-content',
+          maxWidth: '220px',
+          animation: 'fadeIn 0.5s ease-in-out',
+          border: isDarkMode ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(102, 126, 234, 0.1)',
+          zIndex: 1001,
+          cursor: 'pointer'
+        }}
+        onClick={toggleChat}
+        >
+          {/* Close Button */}
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsBubbleVisible(false);
+            }}
+            style={{
+              position: 'absolute',
+              top: '-10px',
+              left: '-10px',
+              backgroundColor: '#ef4444',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              width: '22px',
+              height: '22px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              fontSize: '10px',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+              zIndex: 1002,
+              transition: 'transform 0.2s'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <FaTimes />
+          </button>
+
+          {/* Message Content */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '4px'
+          }}>
+            <span style={{
+              fontSize: '14px',
+              fontWeight: '700',
+              color: '#667eea',
+              display: 'block'
+            }}>
+              {ROTATING_MESSAGES[currentMessageIndex].title}
+            </span>
+            <span style={{
+              fontSize: '13px',
+              color: isDarkMode ? '#ccc' : '#4b5563',
+              lineHeight: '1.4'
+            }}>
+              {ROTATING_MESSAGES[currentMessageIndex].text}
+            </span>
+          </div>
+
+          {/* Arrow */}
+          <div style={{
+            position: 'absolute',
+            right: '-8px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '0',
+            height: '0',
+            borderTop: '8px solid transparent',
+            borderBottom: '8px solid transparent',
+            borderLeft: `8px solid ${isDarkMode ? '#1a1a2e' : 'white'}`
+          }} />
+        </div>
+      )}
+
       {/* Chat Toggle Button */}
       <button
         onClick={toggleChat}
         style={{
-          width: '60px',
-          height: '60px',
+          width: '64px',
+          height: '64px',
           borderRadius: '50%',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          border: 'none',
+          background: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)',
+          border: '4px solid rgba(255, 255, 255, 0.2)',
           color: 'white',
-          fontSize: '24px',
+          fontSize: '28px',
           cursor: 'pointer',
-          boxShadow: '0 4px 12px rgba(102, 126, 234, 0.4)',
+          boxShadow: isDarkMode 
+            ? '0 8px 24px rgba(79, 70, 229, 0.5)' 
+            : '0 8px 24px rgba(124, 58, 237, 0.3)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-          animation: 'pulse 2s infinite'
+          transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+          backdropFilter: 'blur(4px)',
+          zIndex: 1000
         }}
         onMouseOver={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
+          e.currentTarget.style.transform = 'scale(1.1) rotate(5deg)';
+          e.currentTarget.style.boxShadow = isDarkMode 
+            ? '0 12px 30px rgba(79, 70, 229, 0.7)' 
+            : '0 12px 30px rgba(124, 58, 237, 0.5)';
         }}
         onMouseOut={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.4)';
+          e.currentTarget.style.transform = 'scale(1) rotate(0deg)';
+          e.currentTarget.style.boxShadow = isDarkMode 
+            ? '0 8px 24px rgba(79, 70, 229, 0.5)' 
+            : '0 8px 24px rgba(124, 58, 237, 0.3)';
         }}
       >
-        {isOpen ? <FaTimes /> : <FaRobot />}
+        {isOpen ? <FaTimes style={{ fontSize: '24px' }} /> : <RiRobot2Fill />}
       </button>
 
       <style jsx>{`

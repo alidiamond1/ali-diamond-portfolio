@@ -158,12 +158,7 @@ const Hero = () => {
             >
               <span style={{ color: colors.text }}>Hi, I'm </span>
               <span style={{
-                background: isDarkMode 
-                  ? 'linear-gradient(135deg, #a78bfa 0%, #c084fc 100%)'
-                  : 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                color: colors.primary,
               }}>
                 Ali Nor
               </span>

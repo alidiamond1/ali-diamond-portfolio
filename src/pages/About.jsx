@@ -74,8 +74,7 @@ const About = () => {
       <LampBackground>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           style={{ textAlign: 'center', marginTop: '2rem' }}
         >
@@ -90,9 +89,9 @@ const About = () => {
               gap: '0.5rem',
               padding: '0.5rem 1rem',
               borderRadius: '50px',
-              background: colors.cardBg,
-              border: `1px solid ${colors.border}`,
-              color: colors.primary,
+              background: isDarkMode ? 'rgba(167, 139, 250, 0.15)' : colors.cardBg,
+              border: `1px solid ${isDarkMode ? 'rgba(167, 139, 250, 0.3)' : colors.border}`,
+              color: isDarkMode ? '#e0e7ff' : colors.primary,
               fontSize: '0.875rem',
               fontWeight: '500',
               marginBottom: '1rem',
@@ -106,19 +105,15 @@ const About = () => {
             fontSize: 'clamp(2.5rem, 6vw, 4rem)',
             fontWeight: '800',
             marginBottom: '1rem',
-            background: isDarkMode 
-              ? 'linear-gradient(135deg, #a78bfa 0%, #c084fc 100%)'
-              : 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: isDarkMode ? '#ffffff' : colors.primary,
+            textShadow: isDarkMode ? '0 0 40px rgba(167, 139, 250, 0.5)' : 'none',
           }}>
             About Me
           </h1>
           
           <p style={{
             fontSize: '1.25rem',
-            color: colors.textMuted,
+            color: isDarkMode ? '#e2e8f0' : colors.textMuted,
             maxWidth: '600px',
             margin: '0 auto',
           }}>
