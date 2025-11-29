@@ -1,4 +1,3 @@
-import React from 'react';
 
 // Import all project images from the assets/projects folder
 import mediamatchImg from '../assets/projects/mediamatch.jpg';
@@ -6,9 +5,12 @@ import taskManagementImg from '../assets/projects/Screenshot 2025-03-22 173659.p
 import taskTrackerImg from '../assets/projects/tasktracker.jpg';
 import personalBlogImg from '../assets/projects/somaliblog.jpg'; // Using the existing image but mapping to new name
 import languageTutorImg from '../assets/projects/languagetutor.jpg';
-// Add more imports here when images are available
 import donezoImg from '../assets/projects/donezo.jpg';
-// import dashMasterImg from '../assets/projects/dashmaster.jpg';
+// Add more imports here when images are available
+import smartContentImg from '../assets/projects/smart_content_ai.png';
+import restaurantImg from '../assets/projects/restaurant_reservation.png';
+import authAppImg from '../assets/projects/auth_app_pro.png';
+import consultingImg from '../assets/projects/consulting_landing.png';
 
 // Map project titles to their images
 const projectImages = {
@@ -22,7 +24,16 @@ const projectImages = {
   // "DashMaster": dashMasterImg,
   "Blood Management System": null, // Added mapping for Blood Management System
   // "Donezo": null, // Added mapping for Donezo
-  "DashMaster": null // Added mapping for DashMaster
+  "DashMaster": null, // Added mapping for DashMaster
+  "SmartContent AI": smartContentImg,
+  "Restaurant Reservations": restaurantImg,
+  "AuthApp Pro": authAppImg,
+  "Consulting Landing Page": consultingImg,
+  "AquaTrack": null,
+  "Event Management System": null,
+  "Financial Report Analyzer": null,
+  "Speech To Text Sentiment": null,
+  "CPU Scheduling Simulator": null
 };
 
 // This component will be a placeholder until you add real screenshots
@@ -42,7 +53,7 @@ const ProjectImagePlaceholder = ({ title }) => {
   };
 
   const baseColor = getColor(title);
-  
+
   // Generate a gradient for the placeholder
   const getGradient = () => {
     const adjustColor = (color, amount) => {
@@ -52,7 +63,7 @@ const ProjectImagePlaceholder = ({ title }) => {
         return Math.min(255, Math.max(0, adjustment)).toString(16).padStart(2, '0');
       });
     };
-    
+
     const lighter = adjustColor(baseColor, 1.3);
     return `linear-gradient(135deg, ${baseColor} 0%, ${lighter} 100%)`;
   };
@@ -83,7 +94,7 @@ const ProjectImagePlaceholder = ({ title }) => {
           }}
         />
       ))}
-      
+
       {/* Project title */}
       <div style={{
         fontWeight: 'bold',
@@ -126,7 +137,7 @@ const ProjectImage = ({ title }) => {
       return <ProjectImagePlaceholder title={title} />;
     }
   }
-  
+
   // No image defined, use placeholder
   return <ProjectImagePlaceholder title={title} />;
 };
