@@ -313,6 +313,30 @@ const Projects = () => {
       tags: ["React", "JavaScript", "CSS", "LocalStorage", "Budgeting"],
       github: "https://github.com/alidiamond1/Personal_Budget_App",
       demo: null,
+      category: "Mobile App"
+    },
+    {
+      title: "Happy New Year 2025",
+      description: "An interactive New Year countdown application featuring animated celebrations, countdown timer to 2026, festive animations, and social media integration. Built with a vibrant, celebratory design to welcome the new year with style and joy.",
+      tags: ["HTML", "CSS", "JavaScript", "Animations", "Countdown Timer"],
+      github: "https://github.com/alidiamond1/Happy-New-Year",
+      demo: "https://sanad-cusub-wanaagsan.netlify.app/",
+      category: "Web App"
+    },
+    {
+      title: "Taspiix",
+      description: "A mobile application built with modern technologies for enhanced user experience. Features include intuitive navigation, responsive design, and seamless functionality tailored for mobile users.",
+      tags: ["Mobile", "Flutter", "Dart", "App Development"],
+      github: "https://github.com/alidiamond1/Taspiix-App",
+      demo: null,
+      category: "Mobile App"
+    },
+    {
+      title: "Home Tax Somalia",
+      description: "A property tax management system designed for Somalia. Features include property registration, tax calculation, payment tracking, and reporting. Built to streamline tax collection and property management for local authorities.",
+      tags: ["PHP", "MySQL", "Bootstrap", "JavaScript", "Tax Management"],
+      github: "https://github.com/alidiamond1/home-tax-somalia",
+      demo: null,
       category: "Web App"
     },
     {

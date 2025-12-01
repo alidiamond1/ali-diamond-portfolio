@@ -23,6 +23,9 @@ import coffeePosImg from '../assets/projects/coffee_pos.png';
 import expenseTrackerImg from '../assets/projects/expense_tracker.png';
 import personalBudgetImg from '../assets/projects/Gemini_Generated_Image_hlrek4hlrek4hlre.png';
 import eventproImg from '../assets/projects/event_pro.png';
+import happyNewYearImg from '../assets/projects/happy_new_year.png';
+import taspiixImg from '../assets/projects/Gemini_Generated_Image_9u8men9u8men9u8m.png';
+import homeTaxSomaliaImg from '../assets/projects/Gemini_Generated_Image_ove99qove99qove9.png';
 
 // Map project titles to their images
 const projectImages = {
@@ -46,6 +49,9 @@ const projectImages = {
   "Event Management System": eventManagementImg,
   "Expense Tracker": expenseTrackerImg,
   "Personal Budget App": personalBudgetImg,
+  "Happy New Year 2025": happyNewYearImg,
+  "Taspiix": taspiixImg,
+  "Home Tax Somalia": homeTaxSomaliaImg,
   "Financial Report Analyzer": financialAnalyzerImg,
   "Speech To Text Sentiment": speechSentimentImg,
   "CPU Scheduling Simulator": cpuSchedulerImg
