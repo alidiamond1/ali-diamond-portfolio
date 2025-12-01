@@ -62,7 +62,7 @@ const ProjectCard = ({ title, description, tags, image, github, demo, index, cat
       {/* Image Section */}
       <div style={{
         position: 'relative',
-        height: '220px',
+        height: '200px',
         overflow: 'hidden',
         backgroundColor: isDarkMode ? 'rgba(0,0,0,0.2)' : 'rgba(248,250,252,0.5)'
       }}>
@@ -113,14 +113,14 @@ const ProjectCard = ({ title, description, tags, image, github, demo, index, cat
       </div>
 
       {/* Content Section */}
-      <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <motion.h3
           animate={{ color: isHovered ? '#7c3aed' : colors.heading }}
           transition={{ duration: 0.2 }}
           style={{
-            fontSize: '1.35rem',
-            fontWeight: '800',
-            marginBottom: '0.875rem',
+            fontSize: '1.15rem',
+            fontWeight: '700',
+            marginBottom: '0.75rem',
             lineHeight: '1.3',
             letterSpacing: '-0.01em'
           }}>
@@ -128,15 +128,17 @@ const ProjectCard = ({ title, description, tags, image, github, demo, index, cat
         </motion.h3>
 
         <p style={{
-          fontSize: '0.925rem',
+          fontSize: '0.875rem',
           color: colors.text,
-          lineHeight: '1.7',
-          marginBottom: '1.5rem',
+          lineHeight: '1.6',
+          marginBottom: '1.25rem',
           flex: 1,
           display: '-webkit-box',
           WebkitLineClamp: 3,
           WebkitBoxOrient: 'vertical',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          maxHeight: '4.5rem'
         }}>
           {description}
         </p>
@@ -145,8 +147,8 @@ const ProjectCard = ({ title, description, tags, image, github, demo, index, cat
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.625rem',
-          marginBottom: '1.75rem'
+          gap: '0.5rem',
+          marginBottom: '1.25rem'
         }}>
           {tags.slice(0, 4).map((tag, i) => (
             <motion.span
