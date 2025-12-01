@@ -8,91 +8,135 @@ import { HiSparkles } from 'react-icons/hi2';
 
 const ProjectCard = ({ title, description, tags, image, github, demo, index, category }) => {
   const { isDarkMode } = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
 
   const colors = {
-    cardBg: isDarkMode ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.8)',
-    border: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)',
-    text: isDarkMode ? '#e2e8f0' : '#334155',
-    heading: isDarkMode ? '#ffffff' : '#1e293b',
-    tagBg: isDarkMode ? 'rgba(167, 139, 250, 0.1)' : 'rgba(124, 58, 237, 0.1)',
-    tagText: isDarkMode ? '#a78bfa' : '#7c3aed',
+    cardBg: isDarkMode ? 'rgba(15, 23, 42, 0.6)' : 'rgba(255,255,255,0.9)',
+    border: isDarkMode ? 'rgba(139, 92, 246, 0.2)' : 'rgba(124, 58, 237, 0.1)',
+    text: isDarkMode ? '#cbd5e1' : '#475569',
+    heading: isDarkMode ? '#ffffff' : '#0f172a',
+    tagBg: isDarkMode ? 'rgba(139, 92, 246, 0.15)' : 'rgba(124, 58, 237, 0.08)',
+    tagText: isDarkMode ? '#c4b5fd' : '#7c3aed',
+    tagBorder: isDarkMode ? 'rgba(139, 92, 246, 0.3)' : 'rgba(124, 58, 237, 0.2)',
   };
 
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
-      whileHover={{ y: -10 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
       style={{
         backgroundColor: colors.cardBg,
-        backdropFilter: 'blur(10px)',
-        borderRadius: '1.5rem',
-        border: `1px solid ${colors.border}`,
+        backdropFilter: 'blur(20px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        borderRadius: '1.75rem',
+        border: `1.5px solid ${colors.border}`,
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
         boxShadow: isDarkMode
-          ? '0 10px 30px -10px rgba(0,0,0,0.5)'
-          : '0 10px 30px -10px rgba(0,0,0,0.1)',
+          ? `0 20px 40px -15px rgba(0,0,0,0.6), 0 0 0 1px rgba(139, 92, 246, ${isHovered ? 0.3 : 0.1})`
+          : `0 20px 40px -15px rgba(124, 58, 237, ${isHovered ? 0.25 : 0.1}), 0 4px 6px -1px rgba(0,0,0,0.05)`,
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        position: 'relative',
       }}
     >
+      {/* Gradient Accent Bar */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '3px',
+        background: 'linear-gradient(90deg, #7c3aed 0%, #a78bfa 50%, #7c3aed 100%)',
+        opacity: isHovered ? 1 : 0,
+        transition: 'opacity 0.3s ease'
+      }} />
+
       {/* Image Section */}
       <div style={{
         position: 'relative',
-        height: '200px',
+        height: '220px',
         overflow: 'hidden',
-        borderBottom: `1px solid ${colors.border}`
+        backgroundColor: isDarkMode ? 'rgba(0,0,0,0.2)' : 'rgba(248,250,252,0.5)'
       }}>
         <motion.div
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}
-          style={{ width: '100%', height: '100%' }}
+          animate={{ scale: isHovered ? 1.08 : 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          style={{ width: '100%', height: '100%', position: 'relative' }}
         >
           <ProjectImage title={title} />
+
+          {/* Gradient Overlay on Hover */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(180deg, rgba(124, 58, 237, 0.1) 0%, rgba(109, 40, 217, 0.3) 100%)',
+              pointerEvents: 'none'
+            }}
+          />
         </motion.div>
 
         {/* Category Badge */}
-        <div style={{
-          position: 'absolute',
-          top: '1rem',
-          right: '1rem',
-          padding: '0.25rem 0.75rem',
-          borderRadius: '9999px',
-          background: 'rgba(0,0,0,0.6)',
-          backdropFilter: 'blur(4px)',
-          color: 'white',
-          fontSize: '0.75rem',
-          fontWeight: '600',
-          border: '1px solid rgba(255,255,255,0.2)'
-        }}>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          style={{
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+            padding: '0.4rem 1rem',
+            borderRadius: '9999px',
+            background: isDarkMode
+              ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.9) 0%, rgba(109, 40, 217, 0.9) 100%)'
+              : 'linear-gradient(135deg, rgba(124, 58, 237, 0.95) 0%, rgba(109, 40, 217, 0.95) 100%)',
+            backdropFilter: 'blur(12px)',
+            color: 'white',
+            fontSize: '0.75rem',
+            fontWeight: '700',
+            letterSpacing: '0.025em',
+            textTransform: 'uppercase',
+            border: '1.5px solid rgba(255,255,255,0.3)',
+            boxShadow: '0 4px 12px rgba(124, 58, 237, 0.4)'
+          }}>
           {category}
-        </div>
+        </motion.div>
       </div>
 
       {/* Content Section */}
-      <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <h3 style={{
-          fontSize: '1.25rem',
-          fontWeight: '700',
-          marginBottom: '0.75rem',
-          color: colors.heading,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem'
-        }}>
+      <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <motion.h3
+          animate={{ color: isHovered ? '#7c3aed' : colors.heading }}
+          transition={{ duration: 0.2 }}
+          style={{
+            fontSize: '1.35rem',
+            fontWeight: '800',
+            marginBottom: '0.875rem',
+            lineHeight: '1.3',
+            letterSpacing: '-0.01em'
+          }}>
           {title}
-        </h3>
+        </motion.h3>
 
         <p style={{
-          fontSize: '0.9rem',
+          fontSize: '0.925rem',
           color: colors.text,
-          lineHeight: '1.6',
+          lineHeight: '1.7',
           marginBottom: '1.5rem',
-          flex: 1
+          flex: 1,
+          display: '-webkit-box',
+          WebkitLineClamp: 3,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
         }}>
           {description}
         </p>
@@ -101,58 +145,73 @@ const ProjectCard = ({ title, description, tags, image, github, demo, index, cat
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.5rem',
-          marginBottom: '1.5rem'
+          gap: '0.625rem',
+          marginBottom: '1.75rem'
         }}>
           {tags.slice(0, 4).map((tag, i) => (
-            <span key={i} style={{
-              fontSize: '0.75rem',
-              fontWeight: '600',
-              color: colors.tagText,
-              backgroundColor: colors.tagBg,
-              borderRadius: '0.5rem',
-              padding: '0.25rem 0.75rem',
-            }}>
+            <motion.span
+              key={i}
+              whileHover={{ scale: 1.05, y: -2 }}
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: '600',
+                color: colors.tagText,
+                backgroundColor: colors.tagBg,
+                borderRadius: '0.625rem',
+                padding: '0.4rem 0.875rem',
+                border: `1px solid ${colors.tagBorder}`,
+                transition: 'all 0.2s ease',
+                cursor: 'default'
+              }}>
               {tag}
-            </span>
+            </motion.span>
           ))}
           {tags.length > 4 && (
             <span style={{
               fontSize: '0.75rem',
-              color: colors.text,
-              padding: '0.25rem 0.5rem',
+              fontWeight: '600',
+              color: isDarkMode ? '#94a3b8' : '#64748b',
+              padding: '0.4rem 0.75rem',
+              display: 'flex',
+              alignItems: 'center'
             }}>
-              +{tags.length - 4} more
+              +{tags.length - 4}
             </span>
           )}
         </div>
 
         {/* Links */}
-        <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
+        <div style={{ display: 'flex', gap: '0.875rem', marginTop: 'auto' }}>
           {github && (
             <motion.a
               href={github}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
               style={{
                 flex: 1,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '0.75rem',
-                borderRadius: '0.75rem',
-                backgroundColor: isDarkMode ? 'rgba(255,255,255,0.1)' : '#f1f5f9',
+                gap: '0.625rem',
+                padding: '0.875rem 1rem',
+                borderRadius: '0.875rem',
+                background: isDarkMode
+                  ? 'linear-gradient(135deg, rgba(51, 65, 85, 0.8) 0%, rgba(71, 85, 105, 0.8) 100%)'
+                  : 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
                 color: colors.heading,
                 textDecoration: 'none',
-                fontSize: '0.875rem',
-                fontWeight: '600',
-                transition: 'background-color 0.2s'
+                fontSize: '0.9rem',
+                fontWeight: '700',
+                border: `1.5px solid ${isDarkMode ? 'rgba(148, 163, 184, 0.2)' : 'rgba(203, 213, 225, 0.8)'}`,
+                transition: 'all 0.2s ease',
+                boxShadow: isDarkMode
+                  ? '0 2px 8px rgba(0,0,0,0.2)'
+                  : '0 2px 8px rgba(100, 116, 139, 0.15)'
               }}
             >
-              <FaGithub /> Code
+              <FaGithub size={16} /> Code
             </motion.a>
           )}
 
@@ -161,25 +220,27 @@ const ProjectCard = ({ title, description, tags, image, github, demo, index, cat
               href={demo}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
               style={{
                 flex: 1,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.5rem',
-                padding: '0.75rem',
-                borderRadius: '0.75rem',
+                gap: '0.625rem',
+                padding: '0.875rem 1rem',
+                borderRadius: '0.875rem',
                 background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
                 color: 'white',
                 textDecoration: 'none',
-                fontSize: '0.875rem',
-                fontWeight: '600',
-                boxShadow: '0 4px 12px rgba(124, 58, 237, 0.3)'
+                fontSize: '0.9rem',
+                fontWeight: '700',
+                border: '1.5px solid rgba(255,255,255,0.2)',
+                boxShadow: '0 6px 20px rgba(124, 58, 237, 0.35)',
+                transition: 'all 0.2s ease'
               }}
             >
-              <FaExternalLinkAlt /> Live Demo
+              <FaExternalLinkAlt size={14} /> Demo
             </motion.a>
           )}
         </div>
@@ -193,31 +254,50 @@ const FilterButton = ({ active, label, icon: Icon, onClick }) => {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
       onClick={onClick}
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '0.5rem',
-        padding: '0.75rem 1.5rem',
+        gap: '0.625rem',
+        padding: '0.875rem 1.75rem',
         borderRadius: '1rem',
-        border: 'none',
+        border: active
+          ? '2px solid transparent'
+          : `2px solid ${isDarkMode ? 'rgba(148, 163, 184, 0.15)' : 'rgba(203, 213, 225, 0.6)'}`,
         background: active
-          ? 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)'
-          : isDarkMode ? 'rgba(255,255,255,0.05)' : 'white',
-        color: active ? 'white' : isDarkMode ? '#94a3b8' : '#64748b',
-        fontSize: '0.9rem',
-        fontWeight: '600',
+          ? 'linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)'
+          : isDarkMode ? 'rgba(15, 23, 42, 0.5)' : 'rgba(255,255,255,0.8)',
+        backdropFilter: 'blur(12px)',
+        color: active ? 'white' : isDarkMode ? '#cbd5e1' : '#475569',
+        fontSize: '0.95rem',
+        fontWeight: '700',
         cursor: 'pointer',
         boxShadow: active
-          ? '0 4px 12px rgba(124, 58, 237, 0.3)'
-          : '0 2px 8px rgba(0,0,0,0.05)',
-        transition: 'all 0.3s ease'
+          ? '0 8px 24px rgba(124, 58, 237, 0.4)'
+          : isDarkMode
+            ? '0 2px 8px rgba(0,0,0,0.2)'
+            : '0 2px 8px rgba(100, 116, 139, 0.1)',
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
-      {Icon && <Icon />}
-      {label}
+      {active && (
+        <motion.div
+          layoutId="activeFilter"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%)',
+            borderRadius: '1rem',
+          }}
+          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+        />
+      )}
+      {Icon && <Icon size={18} />}
+      <span style={{ position: 'relative', zIndex: 1 }}>{label}</span>
     </motion.button>
   );
 };
@@ -445,76 +525,122 @@ const Projects = () => {
     <section style={{
       backgroundColor: isDarkMode ? '#050816' : '#f8fafc',
       minHeight: '100vh',
-      paddingBottom: '4rem'
+      paddingBottom: '5rem',
+      position: 'relative'
     }}>
+      {/* Ambient Background Gradient */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        maxWidth: '1400px',
+        height: '600px',
+        background: isDarkMode
+          ? 'radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 50%)'
+          : 'radial-gradient(ellipse at top, rgba(124, 58, 237, 0.08) 0%, transparent 50%)',
+        pointerEvents: 'none',
+        zIndex: 0
+      }} />
+
       {/* Header with Lamp Effect */}
       <LampBackground>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          style={{ textAlign: 'center', marginTop: '2rem' }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          style={{ textAlign: 'center', marginTop: '2rem', position: 'relative', zIndex: 1 }}
         >
           <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.4 }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.5rem 1rem',
+              gap: '0.625rem',
+              padding: '0.625rem 1.25rem',
               borderRadius: '50px',
-              background: isDarkMode ? 'rgba(167, 139, 250, 0.15)' : 'rgba(124, 58, 237, 0.1)',
-              border: `1px solid ${isDarkMode ? 'rgba(167, 139, 250, 0.3)' : 'rgba(124, 58, 237, 0.2)'}`,
-              color: isDarkMode ? '#e0e7ff' : '#7c3aed',
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              marginBottom: '1rem',
+              background: isDarkMode
+                ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(124, 58, 237, 0.2) 100%)'
+                : 'linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(167, 139, 250, 0.12) 100%)',
+              backdropFilter: 'blur(12px)',
+              border: `2px solid ${isDarkMode ? 'rgba(167, 139, 250, 0.3)' : 'rgba(124, 58, 237, 0.25)'}`,
+              color: isDarkMode ? '#e9d5ff' : '#7c3aed',
+              fontSize: '0.9rem',
+              fontWeight: '700',
+              marginBottom: '1.5rem',
+              boxShadow: isDarkMode
+                ? '0 4px 16px rgba(124, 58, 237, 0.2)'
+                : '0 4px 16px rgba(124, 58, 237, 0.15)',
+              letterSpacing: '0.025em'
             }}
           >
-            <HiSparkles size={16} />
-            My Portfolio
+            <HiSparkles size={18} />
+            Portfolio Showcase
           </motion.span>
 
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-            fontWeight: '800',
-            marginBottom: '1rem',
-            color: isDarkMode ? '#ffffff' : '#1e293b',
-            textShadow: isDarkMode ? '0 0 40px rgba(167, 139, 250, 0.5)' : 'none',
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+            fontWeight: '900',
+            marginBottom: '1.25rem',
+            background: isDarkMode
+              ? 'linear-gradient(135deg, #ffffff 0%, #e9d5ff 100%)'
+              : 'linear-gradient(135deg, #1e293b 0%, #7c3aed 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '-0.02em'
           }}>
             Featured Projects
           </h1>
 
           <p style={{
             fontSize: '1.25rem',
-            color: isDarkMode ? '#e2e8f0' : '#64748b',
-            maxWidth: '600px',
+            color: isDarkMode ? '#cbd5e1' : '#64748b',
+            maxWidth: '650px',
             margin: '0 auto',
-            lineHeight: '1.6'
+            lineHeight: '1.7',
+            fontWeight: '400'
           }}>
-            A collection of my work in AI, Web Development, and Mobile Apps.
+            Explore my portfolio of innovative solutions across AI, Web Development, Mobile Apps, and Point of Sale systems.
           </p>
         </motion.div>
       </LampBackground>
 
-      {/* Filter Bar */}
+      {/* Main Content */}
       <div style={{
-        maxWidth: '1280px',
-        margin: '-3rem auto 3rem',
+        maxWidth: '1400px',
+        margin: '-4rem auto 0',
         padding: '0 1.5rem',
         position: 'relative',
         zIndex: 10
       }}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          marginBottom: '3rem'
-        }}>
+        {/* Filter Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem',
+            marginBottom: '4rem',
+            padding: '1.5rem',
+            background: isDarkMode
+              ? 'rgba(15, 23, 42, 0.4)'
+              : 'rgba(255, 255, 255, 0.6)',
+            backdropFilter: 'blur(20px)',
+            borderRadius: '1.5rem',
+            border: `1px solid ${isDarkMode ? 'rgba(148, 163, 184, 0.1)' : 'rgba(203, 213, 225, 0.5)'}`,
+            boxShadow: isDarkMode
+              ? '0 8px 32px rgba(0, 0, 0, 0.3)'
+              : '0 8px 32px rgba(100, 116, 139, 0.1)'
+          }}
+        >
           {categories.map(cat => (
             <FilterButton
               key={cat.id}
@@ -524,14 +650,14 @@ const Projects = () => {
               onClick={() => setFilter(cat.id)}
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
         <motion.div
           layout
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
             gap: '2rem',
           }}
         >
@@ -550,7 +676,12 @@ const Projects = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            style={{ textAlign: 'center', padding: '4rem', color: isDarkMode ? '#94a3b8' : '#64748b' }}
+            style={{
+              textAlign: 'center',
+              padding: '5rem 2rem',
+              color: isDarkMode ? '#94a3b8' : '#64748b',
+              fontSize: '1.1rem'
+            }}
           >
             <p>No projects found in this category.</p>
           </motion.div>
@@ -560,38 +691,57 @@ const Projects = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.4 }}
           style={{
             display: 'flex',
             justifyContent: 'center',
-            marginTop: '4rem'
+            marginTop: '5rem'
           }}
         >
           <motion.a
             href="https://github.com/alidiamond1?tab=repositories"
             target="_blank"
             rel="noreferrer"
-            whileHover={{ scale: 1.05, y: -5 }}
+            whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.95 }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.75rem',
-              padding: '1rem 2rem',
-              borderRadius: '1rem',
-              background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+              gap: '0.875rem',
+              padding: '1.25rem 2.5rem',
+              borderRadius: '1.25rem',
+              background: 'linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)',
               color: 'white',
               textDecoration: 'none',
-              fontSize: '1rem',
-              fontWeight: '600',
-              boxShadow: '0 10px 30px rgba(124, 58, 237, 0.4)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              transition: 'all 0.3s ease'
+              fontSize: '1.05rem',
+              fontWeight: '700',
+              letterSpacing: '0.01em',
+              boxShadow: '0 12px 36px rgba(124, 58, 237, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+              border: '2px solid rgba(255, 255, 255, 0.15)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden'
             }}
           >
-            <FaGithub size={20} />
-            View All Projects on GitHub
-            <FaExternalLinkAlt size={16} />
+            <motion.div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%)',
+                opacity: 0.5
+              }}
+              animate={{
+                x: ['-100%', '100%'],
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 3,
+                ease: 'linear'
+              }}
+            />
+            <FaGithub size={22} style={{ position: 'relative', zIndex: 1 }} />
+            <span style={{ position: 'relative', zIndex: 1 }}>View All Projects on GitHub</span>
+            <FaExternalLinkAlt size={18} style={{ position: 'relative', zIndex: 1 }} />
           </motion.a>
         </motion.div>
       </div>
