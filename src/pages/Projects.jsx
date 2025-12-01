@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaRobot, FaMobile, FaLayerGroup } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaRobot, FaMobile, FaLayerGroup, FaShoppingCart } from 'react-icons/fa';
 import { useTheme } from '../contexts/ThemeContext';
 import ProjectImage from '../components/ProjectImage';
 import LampBackground from '../components/LampBackground';
@@ -236,27 +236,27 @@ const Projects = () => {
       category: "AI/ML"
     },
     {
-      title: "AI Image Recognition System",
-      description: "A deep learning application for image classification and object detection using pre-trained models. Implements CNN architectures with TensorFlow and PyTorch, featuring real-time image processing, multi-class classification, and custom model training capabilities.",
-      tags: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Flask", "CNN", "Computer Vision", "REST API"],
-      github: "https://github.com/alidiamond1/ai-image-recognition",
-      demo: "https://ai-image-classifier.herokuapp.com",
-      category: "AI/ML"
+      title: "Super Market POS",
+      description: "A comprehensive Point of Sale system designed for supermarkets and retail stores. Features include product management, inventory tracking, barcode scanning, sales transactions, receipt generation, and detailed sales reports. Built with a modern, user-friendly interface for efficient checkout operations.",
+      tags: ["React", "Vite", "JavaScript", "LocalStorage", "CSS", "Barcode"],
+      github: "https://github.com/alidiamond1/POS-Billing-System",
+      demo: "https://super-market-pos.vercel.app/",
+      category: "POS"
     },
     {
-      title: "NLP Text Analyzer",
-      description: "A comprehensive natural language processing tool that performs sentiment analysis, text summarization, and language translation. Built with transformer models and pre-trained BERT for accurate text analysis and processing.",
-      tags: ["Python", "NLTK", "Transformers", "BERT", "SpaCy", "Flask", "React", "NLP"],
-      github: "https://github.com/alidiamond1/nlp-text-analyzer",
-      demo: "https://nlp-text-analyzer.netlify.app",
-      category: "AI/ML"
+      title: "Coffee POS System",
+      description: "A specialized Point of Sale system tailored for coffee shops and cafes. Features include menu management, order processing, customizable drink options, bill calculation, and customer order history. Designed with a clean, intuitive interface optimized for fast-paced cafe environments.",
+      tags: ["React", "TypeScript", "TailwindCSS", "Vite", "LocalStorage"],
+      github: "https://github.com/alidiamond1/Coffee-POS-System",
+      demo: "https://coffee-pos-liart.vercel.app/",
+      category: "POS"
     },
     {
       title: "MediaMatch",
       description: "A modern web application for discovering movies based on your mood and preferences. Features include mood-based recommendations, smart search, watchlist management, user ratings & reviews, responsive design, and user authentication.",
       tags: ["React", "Vite", "TailwindCSS", "Zustand", "Framer Motion", "TMDB API"],
       github: "https://github.com/alidiamond1/MediaMatch",
-      demo: "https://media-match.vercel.app",
+      demo: "https://media-match-six.vercel.app/",
       category: "Web App"
     },
     {
@@ -272,7 +272,7 @@ const Projects = () => {
       description: "A modern admin dashboard with fully responsive design, dark/light mode support, complete authentication system, and interactive charts. Built with React and Vite for fast performance, styled with Tailwind CSS, and featuring Supabase for authentication.",
       tags: ["React", "Vite", "Tailwind CSS", "Zustand", "Supabase", "Recharts"],
       github: "https://github.com/alidiamond1/DashMaster",
-      demo: "https://dash-master-pearl.vercel.app/login",
+      demo: "https://dash-master-pearl.vercel.app/",
       category: "Web App"
     },
     {
@@ -292,11 +292,27 @@ const Projects = () => {
       category: "Web App"
     },
     {
-      title: "TaskTracker Pro",
-      description: "A comprehensive task management application with features like task assignment, deadline tracking, priority management, and automated reminders. Built with the MERN stack for efficient task organization and team collaboration.",
+      title: "Event Management",
+      description: "A comprehensive Event management application with features like task assignment, deadline tracking, priority management, and automated reminders. Built with the MERN stack for efficient task organization and team collaboration.",
       tags: ["React.js", "Node.js", "Express", "MongoDB", "JWT", "Socket.io"],
-      github: "https://github.com/alidiamond1/task-tracker",
-      demo: "https://tasktracker-pro.netlify.app",
+      github: "https://github.com/alidiamond1/EventPro",
+      demo: "https://event-pro-gules.vercel.app/",
+      category: "Web App"
+    },
+    {
+      title: "Expense Tracker",
+      description: "A powerful expense tracking application to help manage your finances. Features include transaction logging, category-based expense tracking, visual reports and charts, budget monitoring, and financial insights. Built with a clean, intuitive interface for easy daily expense management.",
+      tags: ["React", "Vite", "JavaScript", "Chart.js", "LocalStorage", "CSS"],
+      github: "https://github.com/alidiamond1/Expense-Tracker",
+      demo: "https://expense-tracker-theta-smoky.vercel.app/",
+      category: "Web App"
+    },
+    {
+      title: "Personal Budget App",
+      description: "A comprehensive personal budgeting application designed to help you take control of your finances. Features include income and expense tracking, budget planning, financial goal setting, spending analysis, and detailed financial reports. Perfect for managing personal finances and achieving financial goals.",
+      tags: ["React", "JavaScript", "CSS", "LocalStorage", "Budgeting"],
+      github: "https://github.com/alidiamond1/Personal_Budget_App",
+      demo: null,
       category: "Web App"
     },
     {
@@ -394,6 +410,7 @@ const Projects = () => {
     { id: 'AI/ML', icon: FaRobot },
     { id: 'Web App', icon: FaCode },
     { id: 'Mobile App', icon: FaMobile },
+    { id: 'POS', icon: FaShoppingCart },
   ];
 
   const filteredProjects = filter === 'All'
@@ -514,6 +531,45 @@ const Projects = () => {
             <p>No projects found in this category.</p>
           </motion.div>
         )}
+
+        {/* View All Projects Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '4rem'
+          }}
+        >
+          <motion.a
+            href="https://github.com/alidiamond1?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              padding: '1rem 2rem',
+              borderRadius: '1rem',
+              background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+              color: 'white',
+              textDecoration: 'none',
+              fontSize: '1rem',
+              fontWeight: '600',
+              boxShadow: '0 10px 30px rgba(124, 58, 237, 0.4)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            <FaGithub size={20} />
+            View All Projects on GitHub
+            <FaExternalLinkAlt size={16} />
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

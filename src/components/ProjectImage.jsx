@@ -6,34 +6,49 @@ import taskTrackerImg from '../assets/projects/tasktracker.jpg';
 import personalBlogImg from '../assets/projects/somaliblog.jpg'; // Using the existing image but mapping to new name
 import languageTutorImg from '../assets/projects/languagetutor.jpg';
 import donezoImg from '../assets/projects/donezo.jpg';
-// Add more imports here when images are available
+import studentPerformanceImg from '../assets/projects/student_performance.png';
+import dashMasterImg from '../assets/projects/dash_master.png';
+import bloodManagementImg from '../assets/projects/blood_management.png';
+import aquaTrackImg from '../assets/projects/aqua_track.png';
+import eventManagementImg from '../assets/projects/event_management.png';
+import financialAnalyzerImg from '../assets/projects/financial_analyzer.png';
+import speechSentimentImg from '../assets/projects/speech_sentiment.png';
+import cpuSchedulerImg from '../assets/projects/cpu_scheduler.png';
 import smartContentImg from '../assets/projects/smart_content_ai.png';
 import restaurantImg from '../assets/projects/restaurant_reservation.png';
 import authAppImg from '../assets/projects/auth_app_pro.png';
 import consultingImg from '../assets/projects/consulting_landing.png';
+import superMarketPosImg from '../assets/projects/super_market_pos.png';
+import coffeePosImg from '../assets/projects/coffee_pos.png';
+import expenseTrackerImg from '../assets/projects/expense_tracker.png';
+import personalBudgetImg from '../assets/projects/Gemini_Generated_Image_hlrek4hlrek4hlre.png';
+import eventproImg from '../assets/projects/event_pro.png';
 
 // Map project titles to their images
 const projectImages = {
+  "Student Performance Predictor": studentPerformanceImg,
+  "Super Market POS": superMarketPosImg,
+  "Coffee POS System": coffeePosImg,
   "MediaMatch": mediamatchImg,
-  "Task Management System": taskManagementImg,
-  "TaskTracker Pro": taskTrackerImg,
-  "Personal Blog Platform": personalBlogImg, // Updated to match new project name
-  "Somalia Language Tutor": languageTutorImg,
-  // When images are available, uncomment these lines
   "Donezo": donezoImg,
-  // "DashMaster": dashMasterImg,
-  "Blood Management System": null, // Added mapping for Blood Management System
-  // "Donezo": null, // Added mapping for Donezo
-  "DashMaster": null, // Added mapping for DashMaster
+  "DashMaster": dashMasterImg,
+  "Blood Management System": bloodManagementImg,
+  "Task Management System": taskManagementImg,
+  "Event Management": eventproImg,
+  "TaskTracker Pro": taskTrackerImg,
+  "Personal Blog Platform": personalBlogImg,
   "SmartContent AI": smartContentImg,
   "Restaurant Reservations": restaurantImg,
   "AuthApp Pro": authAppImg,
   "Consulting Landing Page": consultingImg,
-  "AquaTrack": null,
-  "Event Management System": null,
-  "Financial Report Analyzer": null,
-  "Speech To Text Sentiment": null,
-  "CPU Scheduling Simulator": null
+  "Somalia Language Tutor": languageTutorImg,
+  "AquaTrack": aquaTrackImg,
+  "Event Management System": eventManagementImg,
+  "Expense Tracker": expenseTrackerImg,
+  "Personal Budget App": personalBudgetImg,
+  "Financial Report Analyzer": financialAnalyzerImg,
+  "Speech To Text Sentiment": speechSentimentImg,
+  "CPU Scheduling Simulator": cpuSchedulerImg
 };
 
 // This component will be a placeholder until you add real screenshots
