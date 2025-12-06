@@ -17,11 +17,7 @@ import {
   FaRobot,
   FaChartLine,
   FaEye,
-  FaCode,
-  FaMousePointer,
-  FaWind,
   FaWindows,
-  FaLaptopCode
 } from 'react-icons/fa';
 import {
   SiMongodb,
@@ -341,18 +337,26 @@ const Skills = () => {
             width: '750px',
             height: '750px',
             borderRadius: '50%',
-            border: `2px dashed ${isDarkMode ? 'rgba(139, 92, 246, 0.15)' : 'rgba(99, 102, 241, 0.1)'}`,
+            border: `3px solid transparent`,
+            background: isDarkMode
+              ? 'linear-gradient(#050816, #050816) padding-box, linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #8b5cf6 100%) border-box'
+              : 'linear-gradient(#f8fafc, #f8fafc) padding-box, linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #8b5cf6 100%) border-box',
             animation: 'spin 60s linear infinite',
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            opacity: isDarkMode ? 0.4 : 0.3
           }} />
           <div style={{
             position: 'absolute',
             width: '680px',
             height: '680px',
             borderRadius: '50%',
-            border: `1px solid ${isDarkMode ? 'rgba(99, 102, 241, 0.1)' : 'rgba(139, 92, 246, 0.08)'}`,
+            border: `2px solid transparent`,
+            background: isDarkMode
+              ? 'linear-gradient(#050816, #050816) padding-box, linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #3b82f6 100%) border-box'
+              : 'linear-gradient(#f8fafc, #f8fafc) padding-box, linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #3b82f6 100%) border-box',
             animation: 'spin 45s linear infinite reverse',
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            opacity: isDarkMode ? 0.5 : 0.4
           }} />
 
           <SkillsSphere
