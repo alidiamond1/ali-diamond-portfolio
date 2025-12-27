@@ -14,9 +14,9 @@ import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 
 // EmailJS configuration
-const EMAILJS_SERVICE_ID = 'service_9bmjtfp';
-const EMAILJS_TEMPLATE_ID = 'template_w5pqby5';
-const EMAILJS_PUBLIC_KEY = 'mHaoAvwSmLy5Siiri';
+const EMAILJS_SERVICE_ID = 'service_8ag952o';
+const EMAILJS_TEMPLATE_ID = 'template_j8ybc78';
+const EMAILJS_PUBLIC_KEY = '8M2fesg-vk2D2Ivq-';
 
 const Contact = () => {
   const { isDarkMode } = useTheme();
@@ -74,9 +74,9 @@ const Contact = () => {
     }
 
     const templateParams = {
-      from_name: formData.name,
+      name: formData.name,
       from_email: formData.email,
-      subject: formData.subject || 'Portfolio Contact Form',
+      time: new Date().toLocaleString(),
       message: formData.message,
       to_name: 'Ali Nor',
       to_email: 'calinuurcabdulle11@gmail.com'
@@ -100,7 +100,7 @@ const Contact = () => {
         setFormStatus({
           submitted: false,
           error: true,
-          message: 'Failed to send your message. Please try again later.'
+          message: `Error: ${error.text || 'Failed to send message'}. Please check your configuration.`
         });
       })
       .finally(() => {
