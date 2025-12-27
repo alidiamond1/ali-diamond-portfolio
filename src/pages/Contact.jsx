@@ -14,9 +14,9 @@ import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 
 // EmailJS configuration
-const EMAILJS_SERVICE_ID = 'service_8ag952o';
-const EMAILJS_TEMPLATE_ID = 'template_j8ybc78';
-const EMAILJS_PUBLIC_KEY = '8M2fesg-vk2D2Ivq-';
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const { isDarkMode } = useTheme();
