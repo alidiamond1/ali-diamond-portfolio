@@ -2,10 +2,10 @@ import React from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import { motion } from 'framer-motion';
 import { HiSparkles } from 'react-icons/hi2';
-import { 
-  FaGraduationCap, 
-  FaBrain, 
-  FaUniversity, 
+import {
+  FaGraduationCap,
+  FaBrain,
+  FaUniversity,
   FaSchool,
   FaBookOpen,
   FaCertificate,
@@ -27,7 +27,7 @@ const Education = () => {
     bg: isDarkMode ? '#0f0a1f' : '#f8fafc',
     cardBg: isDarkMode ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.9)',
     border: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',
-    gradient: isDarkMode 
+    gradient: isDarkMode
       ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
       : 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
     shadowColor: isDarkMode ? 'rgba(102, 126, 234, 0.15)' : 'rgba(124, 58, 237, 0.1)',
@@ -145,13 +145,13 @@ const Education = () => {
                 gap: '0.75rem',
               }}
             >
-              <FaCheckCircle 
-                size={16} 
-                style={{ 
-                  color: colors.primary, 
+              <FaCheckCircle
+                size={16}
+                style={{
+                  color: colors.primary,
                   marginTop: '3px',
                   flexShrink: 0,
-                }} 
+                }}
               />
               <span style={{
                 fontSize: '0.9rem',
@@ -305,7 +305,7 @@ const Education = () => {
   ];
 
   return (
-    <section style={{ 
+    <section style={{
       background: colors.bg,
       minHeight: '100vh',
       paddingBottom: '4rem',
@@ -340,7 +340,7 @@ const Education = () => {
             <FaGraduationCap size={16} />
             Academic Journey
           </motion.span>
-          
+
           <h1 style={{
             fontSize: 'clamp(2.5rem, 6vw, 4rem)',
             fontWeight: '800',
@@ -350,7 +350,7 @@ const Education = () => {
           }}>
             Education
           </h1>
-          
+
           <p style={{
             fontSize: '1.25rem',
             color: isDarkMode ? '#e2e8f0' : colors.textMuted,
@@ -408,7 +408,7 @@ const Education = () => {
             </span>
             Certifications & Courses
           </h3>
-          
+
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
@@ -497,8 +497,8 @@ const Education = () => {
             margin: '0 auto',
             lineHeight: 1.8,
           }}>
-            "Education is not preparation for life; education is life itself." I believe in continuous 
-            learning and staying updated with the latest technologies. Every day is an opportunity 
+            "Education is not preparation for life; education is life itself." I believe in continuous
+            learning and staying updated with the latest technologies. Every day is an opportunity
             to learn something new and grow as a developer.
           </p>
         </motion.div>

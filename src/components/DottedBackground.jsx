@@ -50,7 +50,7 @@ const DottedBackground = ({ children, className = '' }) => {
         const z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2;
 
         positions.push(x, y, z);
-        
+
         // Color based on theme
         if (isDarkMode) {
           colors.push(0.6, 0.5, 0.9); // Purple tint for dark mode

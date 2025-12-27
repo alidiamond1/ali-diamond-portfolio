@@ -3,13 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import ThemeToggle from './ThemeToggle';
-import { 
-  FaHome, 
-  FaUser, 
-  FaGraduationCap, 
-  FaBriefcase, 
-  FaCode, 
-  FaTools, 
+import {
+  FaHome,
+  FaUser,
+  FaGraduationCap,
+  FaBriefcase,
+  FaCode,
+  FaTools,
   FaEnvelope,
   FaFileDownload,
   FaBars,
@@ -31,7 +31,7 @@ const Sidebar = ({ onExpandChange }) => {
   // Premium color palette
   const colors = {
     // Gradient colors
-    primaryGradient: isDarkMode 
+    primaryGradient: isDarkMode
       ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
       : 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
     accentGradient: isDarkMode
@@ -67,7 +67,7 @@ const Sidebar = ({ onExpandChange }) => {
         setMobileMenuOpen(false);
       }
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -178,7 +178,7 @@ const Sidebar = ({ onExpandChange }) => {
             }}
           />
         )}
-        
+
         {/* Icon container */}
         <div
           style={{
@@ -193,14 +193,14 @@ const Sidebar = ({ onExpandChange }) => {
             transition: 'all 0.2s ease',
           }}
         >
-          <Icon 
-            size={17} 
-            style={{ 
+          <Icon
+            size={17}
+            style={{
               color: isActive ? '#ffffff' : 'inherit',
-            }} 
+            }}
           />
         </div>
-        
+
         {(isExpanded || isMobile) && (
           <span
             style={{
@@ -233,8 +233,8 @@ const Sidebar = ({ onExpandChange }) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '0 1.5rem',
-        background: isDarkMode 
-          ? 'rgba(15, 15, 35, 0.85)' 
+        background: isDarkMode
+          ? 'rgba(15, 15, 35, 0.85)'
           : 'rgba(255, 255, 255, 0.85)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
@@ -242,9 +242,9 @@ const Sidebar = ({ onExpandChange }) => {
         borderBottom: `1px solid ${colors.border}`,
       }}
     >
-      <Link 
-        to="/" 
-        style={{ 
+      <Link
+        to="/"
+        style={{
           display: 'flex',
           alignItems: 'center',
           gap: '0.75rem',
@@ -267,9 +267,9 @@ const Sidebar = ({ onExpandChange }) => {
             padding: '4px',
           }}
         >
-          <img 
-            src="/logo.png" 
-            alt="Logo" 
+          <img
+            src="/logo.png"
+            alt="Logo"
             style={{
               width: '100%',
               height: '100%',
@@ -278,9 +278,9 @@ const Sidebar = ({ onExpandChange }) => {
             }}
           />
         </motion.div>
-        <span style={{ 
-          fontSize: '1.25rem', 
-          fontWeight: '700', 
+        <span style={{
+          fontSize: '1.25rem',
+          fontWeight: '700',
           background: colors.primaryGradient,
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
@@ -350,8 +350,8 @@ const Sidebar = ({ onExpandChange }) => {
             style={{
               position: 'fixed',
               inset: 0,
-              background: isDarkMode 
-                ? 'rgba(0, 0, 0, 0.7)' 
+              background: isDarkMode
+                ? 'rgba(0, 0, 0, 0.7)'
                 : 'rgba(0, 0, 0, 0.4)',
               backdropFilter: 'blur(4px)',
               zIndex: 90,
@@ -373,8 +373,8 @@ const Sidebar = ({ onExpandChange }) => {
               padding: '1.5rem 1rem',
               overflowY: 'auto',
               borderRight: `1px solid ${colors.border}`,
-              boxShadow: isDarkMode 
-                ? '8px 0 40px rgba(0,0,0,0.5)' 
+              boxShadow: isDarkMode
+                ? '8px 0 40px rgba(0,0,0,0.5)'
                 : '8px 0 40px rgba(0,0,0,0.15)',
             }}
           >
@@ -391,17 +391,17 @@ const Sidebar = ({ onExpandChange }) => {
               filter: 'blur(60px)',
               pointerEvents: 'none',
             }} />
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', position: 'relative' }}>
               {links.map((item) => (
-                <NavLink 
-                  key={item.id} 
-                  item={item} 
-                  onClick={() => setMobileMenuOpen(false)} 
+                <NavLink
+                  key={item.id}
+                  item={item}
+                  onClick={() => setMobileMenuOpen(false)}
                 />
               ))}
             </div>
-            
+
             {/* Download CV Button */}
             <a
               href={resumeUrl}
@@ -493,8 +493,8 @@ const Sidebar = ({ onExpandChange }) => {
         zIndex: 50,
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: isDarkMode 
-          ? '8px 0 40px rgba(0,0,0,0.3)' 
+        boxShadow: isDarkMode
+          ? '8px 0 40px rgba(0,0,0,0.3)'
           : '8px 0 40px rgba(0,0,0,0.08)',
         overflow: 'hidden',
       }}
@@ -534,9 +534,9 @@ const Sidebar = ({ onExpandChange }) => {
         justifyContent: isExpanded ? 'flex-start' : 'center',
         position: 'relative',
       }}>
-        <Link 
-          to="/" 
-          style={{ 
+        <Link
+          to="/"
+          style={{
             textDecoration: 'none',
             display: 'flex',
             alignItems: 'center',
@@ -560,9 +560,9 @@ const Sidebar = ({ onExpandChange }) => {
               padding: isExpanded ? '6px' : '8px',
             }}
           >
-            <img 
-              src="/logo.png" 
-              alt="Logo" 
+            <img
+              src="/logo.png"
+              alt="Logo"
               style={{
                 width: '100%',
                 height: '100%',
@@ -579,9 +579,9 @@ const Sidebar = ({ onExpandChange }) => {
                 exit={{ opacity: 0, x: -10 }}
                 transition={{ duration: 0.2 }}
               >
-                <div style={{ 
-                  fontSize: '1.35rem', 
-                  fontWeight: '700', 
+                <div style={{
+                  fontSize: '1.35rem',
+                  fontWeight: '700',
                   background: colors.primaryGradient,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
@@ -749,12 +749,12 @@ const Sidebar = ({ onExpandChange }) => {
               transition: 'all 0.2s ease',
             }}
           >
-            <FaChevronLeft 
-              size={14} 
-              style={{ 
+            <FaChevronLeft
+              size={14}
+              style={{
                 transform: isExpanded ? 'rotate(0deg)' : 'rotate(180deg)',
                 transition: 'transform 0.2s ease'
-              }} 
+              }}
             />
           </button>
         </div>

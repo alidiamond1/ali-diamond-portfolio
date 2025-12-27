@@ -3,11 +3,11 @@ import { useTheme } from '../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
 import profileImage from '../assets/images/CALI NUUR.jpg';
 import { motion } from 'framer-motion';
-import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaTwitter, 
-  FaWhatsapp, 
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaWhatsapp,
   FaTelegram,
   FaMapMarkerAlt,
   FaEnvelope,
@@ -35,7 +35,7 @@ const About = () => {
     bg: isDarkMode ? '#0f0a1f' : '#f8fafc',
     cardBg: isDarkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
     border: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-    gradient: isDarkMode 
+    gradient: isDarkMode
       ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
       : 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
   };
@@ -65,7 +65,7 @@ const About = () => {
   ];
 
   return (
-    <section style={{ 
+    <section style={{
       background: colors.bg,
       minHeight: '100vh',
       paddingBottom: '4rem',
@@ -100,7 +100,7 @@ const About = () => {
             <HiSparkles size={16} />
             Get to know me
           </motion.span>
-          
+
           <h1 style={{
             fontSize: 'clamp(2.5rem, 6vw, 4rem)',
             fontWeight: '800',
@@ -110,7 +110,7 @@ const About = () => {
           }}>
             About Me
           </h1>
-          
+
           <p style={{
             fontSize: '1.25rem',
             color: isDarkMode ? '#e2e8f0' : colors.textMuted,
@@ -167,7 +167,7 @@ const About = () => {
                 opacity: 0.2,
                 filter: 'blur(40px)',
               }} />
-              
+
               {/* Animated Ring */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -180,7 +180,7 @@ const About = () => {
                   opacity: 0.4,
                 }}
               />
-              
+
               {/* Image */}
               <div style={{
                 position: 'relative',
@@ -219,7 +219,7 @@ const About = () => {
             }}>
               Ali Nor Abdulle
             </h2>
-            
+
             <p style={{
               fontSize: '1.125rem',
               color: colors.primary,
@@ -330,7 +330,7 @@ const About = () => {
             </span>
             Professional Summary
           </h3>
-          
+
           <p style={{
             fontSize: '1.05rem',
             color: colors.textMuted,
@@ -338,12 +338,12 @@ const About = () => {
             marginBottom: '1.5rem',
           }}>
             Dynamic <strong style={{ color: colors.primary }}>AI/ML Engineer</strong> and{' '}
-            <strong style={{ color: colors.primary }}>Full-Stack Developer</strong> with proven expertise 
-            at Daluul Tech, specializing in intelligent web and mobile application development. I leverage 
-            cutting-edge technologies including TensorFlow, PyTorch, and Scikit-learn alongside React.js, 
+            <strong style={{ color: colors.primary }}>Full-Stack Developer</strong> with proven expertise
+            at Daluul Tech, specializing in intelligent web and mobile application development. I leverage
+            cutting-edge technologies including TensorFlow, PyTorch, and Scikit-learn alongside React.js,
             Node.js, PHP, and Flutter to build AI-powered, responsive applications.
           </p>
-          
+
           <p style={{
             fontSize: '1.05rem',
             color: colors.textMuted,
@@ -352,8 +352,8 @@ const About = () => {
             My expertise spans <strong style={{ color: colors.text }}>Machine Learning</strong>,{' '}
             <strong style={{ color: colors.text }}>Deep Learning</strong>,{' '}
             <strong style={{ color: colors.text }}>Computer Vision</strong>, and{' '}
-            <strong style={{ color: colors.text }}>NLP</strong>, deploying production-ready AI models 
-            to create intelligent, data-driven solutions that solve real-world problems. Currently 
+            <strong style={{ color: colors.text }}>NLP</strong>, deploying production-ready AI models
+            to create intelligent, data-driven solutions that solve real-world problems. Currently
             specializing in transformer models, reinforcement learning, and MLOps for production deployment.
           </p>
         </motion.div>
@@ -375,7 +375,7 @@ const About = () => {
           }}>
             Areas of Expertise
           </h3>
-          
+
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
@@ -497,7 +497,7 @@ const About = () => {
           }}>
             Let's Connect
           </h3>
-          
+
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',

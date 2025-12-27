@@ -5,9 +5,9 @@ import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = ({ style = {} }) => {
   const { isDarkMode } = useTheme();
-  
+
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer style={{
       padding: '3rem 0',
@@ -17,16 +17,16 @@ const Footer = ({ style = {} }) => {
       ...style
     }}>
       <div className="section-container">
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
           gap: '2rem',
           marginBottom: '3rem'
         }}>
           {/* About Section */}
           <div>
-            <h3 style={{ 
-              color: isDarkMode ? 'white' : 'var(--color-text-light)', 
+            <h3 style={{
+              color: isDarkMode ? 'white' : 'var(--color-text-light)',
               marginBottom: '1rem',
               fontSize: '1.25rem',
               fontWeight: '600'
@@ -42,8 +42,8 @@ const Footer = ({ style = {} }) => {
                 fontSize: '1.25rem',
                 transition: 'color 0.2s'
               }}
-              onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
-              onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
+                onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
+                onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
                 <FaGithub />
               </a>
               <a href="https://www.linkedin.com/in/ali-diamond-19b8052b9/" target="_blank" rel="noopener noreferrer" style={{
@@ -51,8 +51,8 @@ const Footer = ({ style = {} }) => {
                 fontSize: '1.25rem',
                 transition: 'color 0.2s'
               }}
-              onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
-              onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
+                onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
+                onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
                 <FaLinkedin />
               </a>
               <a href="https://x.com/@Alidiamond143" target="_blank" rel="noopener noreferrer" style={{
@@ -60,8 +60,8 @@ const Footer = ({ style = {} }) => {
                 fontSize: '1.25rem',
                 transition: 'color 0.2s'
               }}
-              onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
-              onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
+                onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
+                onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
                 <FaTwitter />
               </a>
               <a href="https://fb.com/AliNorAbdulle10" target="_blank" rel="noopener noreferrer" style={{
@@ -69,17 +69,17 @@ const Footer = ({ style = {} }) => {
                 fontSize: '1.25rem',
                 transition: 'color 0.2s'
               }}
-              onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
-              onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
+                onMouseOver={(e) => e.currentTarget.style.color = 'var(--color-blue-500)'}
+                onMouseOut={(e) => e.currentTarget.style.color = isDarkMode ? 'var(--color-text-secondary)' : 'var(--color-text-secondary-light)'}>
                 <FaFacebook />
               </a>
             </div>
           </div>
-          
+
           {/* Links Section */}
           <div>
-            <h3 style={{ 
-              color: isDarkMode ? 'white' : 'var(--color-text-light)', 
+            <h3 style={{
+              color: isDarkMode ? 'white' : 'var(--color-text-light)',
               marginBottom: '1rem',
               fontSize: '1.25rem',
               fontWeight: '600'
@@ -95,7 +95,7 @@ const Footer = ({ style = {} }) => {
                 { path: '/contact', name: 'Contact' }
               ].map(link => (
                 <li key={link.path} style={{ marginBottom: '0.75rem' }}>
-                  <Link 
+                  <Link
                     to={link.path}
                     style={{
                       color: 'inherit',
@@ -111,11 +111,11 @@ const Footer = ({ style = {} }) => {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact Section */}
           <div>
-            <h3 style={{ 
-              color: isDarkMode ? 'white' : 'var(--color-text-light)', 
+            <h3 style={{
+              color: isDarkMode ? 'white' : 'var(--color-text-light)',
               marginBottom: '1rem',
               fontSize: '1.25rem',
               fontWeight: '600'
@@ -123,14 +123,14 @@ const Footer = ({ style = {} }) => {
               Contact
             </h3>
             <ul style={{ listStyle: 'none', padding: 0 }}>
-              <li style={{ 
+              <li style={{
                 marginBottom: '0.75rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
                 <FaEnvelope />
-                <a 
+                <a
                   href="mailto:calinuurcabdulle11@gmail.com"
                   style={{
                     color: 'inherit',
@@ -143,14 +143,14 @@ const Footer = ({ style = {} }) => {
                   calinuurcabdulle11@gmail.com
                 </a>
               </li>
-              <li style={{ 
+              <li style={{
                 marginBottom: '0.75rem',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.5rem'
               }}>
                 <FaPhone />
-                <a 
+                <a
                   href="tel:+252619899733"
                   style={{
                     color: 'inherit',
@@ -169,9 +169,9 @@ const Footer = ({ style = {} }) => {
             </ul>
           </div>
         </div>
-        
+
         {/* Copyright */}
-        <div style={{ 
+        <div style={{
           textAlign: 'center',
           borderTop: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.1)',
           paddingTop: '1.5rem'

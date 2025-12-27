@@ -19,7 +19,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -27,11 +27,11 @@ const Navbar = () => {
         setNav(false);
       }
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   const links = [
     { id: 1, link: '/', name: 'Home' },
     { id: 2, link: '/about', name: 'About' },
@@ -45,9 +45,9 @@ const Navbar = () => {
   const resumeUrl = "https://drive.google.com/file/d/1vt2sgUC5W1rTzyQ7uPtsm2oMi_I9z24q/view?usp=drive_link";
 
   const ResumeButton = ({ mobile = false }) => (
-    <motion.a 
+    <motion.a
       href={resumeUrl}
-      target="_blank" 
+      target="_blank"
       rel="noopener noreferrer"
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
@@ -75,7 +75,7 @@ const Navbar = () => {
       color: isDarkMode ? '#FFFFFF' : '#1d4ed8',
     }
   };
-  
+
   const mobileMenuVariants = {
     hidden: {
       opacity: 0,
@@ -107,14 +107,14 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={false}
-      animate={{ 
-        backgroundColor: isScrolled || nav 
+      animate={{
+        backgroundColor: isScrolled || nav
           ? (isDarkMode ? 'rgba(5, 8, 22, 0.85)' : 'rgba(248, 250, 252, 0.85)')
           : 'transparent',
-        boxShadow: isScrolled 
-          ? (isDarkMode ? '0 4px 30px rgba(0,0,0,0.1)' : '0 4px 30px rgba(0,0,0,0.05)') 
+        boxShadow: isScrolled
+          ? (isDarkMode ? '0 4px 30px rgba(0,0,0,0.1)' : '0 4px 30px rgba(0,0,0,0.05)')
           : 'none'
       }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -135,12 +135,12 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div style={{ 
+        <div style={{
           display: isMobile ? 'none' : 'flex',
           alignItems: 'center',
           gap: '1rem'
         }}>
-          <ul style={{ 
+          <ul style={{
             display: 'flex',
             listStyle: 'none',
             margin: 0,
@@ -212,7 +212,7 @@ const Navbar = () => {
         {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {nav && (
-            <motion.ul 
+            <motion.ul
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
@@ -243,10 +243,10 @@ const Navbar = () => {
                     cursor: 'pointer'
                   }}
                 >
-                  <Link 
-                    onClick={() => setNav(false)} 
+                  <Link
+                    onClick={() => setNav(false)}
                     to={link}
-                    style={{ 
+                    style={{
                       fontSize: '1.5rem',
                       fontWeight: '500',
                       color: location.pathname === link ? 'var(--color-blue-500)' : 'var(--color-secondary)',

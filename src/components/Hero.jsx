@@ -27,7 +27,7 @@ const Hero = () => {
     bg: isDarkMode ? '#0f0f23' : '#fafafa',
     cardBg: isDarkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
     border: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-    gradient: isDarkMode 
+    gradient: isDarkMode
       ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
       : 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
   };
@@ -66,8 +66,8 @@ const Hero = () => {
         padding: '2rem 1.5rem',
         position: 'relative',
         overflow: 'hidden',
-        background: isDarkMode 
-          ? 'radial-gradient(ellipse at 50% 0%, rgba(102, 126, 234, 0.15) 0%, transparent 50%)' 
+        background: isDarkMode
+          ? 'radial-gradient(ellipse at 50% 0%, rgba(102, 126, 234, 0.15) 0%, transparent 50%)'
           : 'radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
       }}>
         {/* Gradient Orbs */}
@@ -203,8 +203,8 @@ const Hero = () => {
                 maxWidth: '500px',
               }}
             >
-              I craft exceptional digital experiences with modern technologies. 
-              Specializing in React, Node.js, AI/ML, and mobile development to build 
+              I craft exceptional digital experiences with modern technologies.
+              Specializing in React, Node.js, AI/ML, and mobile development to build
               intelligent applications that solve real-world problems.
             </motion.p>
 
@@ -334,7 +334,7 @@ const Hero = () => {
                   opacity: 0.3,
                 }}
               />
-              
+
               {/* Glow Effect */}
               <div style={{
                 position: 'absolute',

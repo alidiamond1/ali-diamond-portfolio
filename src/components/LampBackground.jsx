@@ -120,7 +120,7 @@ const LampBackground = ({ children }) => {
           padding: '0 1.25rem',
           marginTop: '-5rem',
           width: '100%',
-          background: isDarkMode 
+          background: isDarkMode
             ? 'radial-gradient(ellipse at center top, rgba(15, 10, 31, 0.8) 0%, transparent 70%)'
             : 'transparent',
         }}

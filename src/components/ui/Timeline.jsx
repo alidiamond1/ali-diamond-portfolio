@@ -21,7 +21,7 @@ export const Timeline = ({ data }) => {
     border: isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',
     primary: isDarkMode ? '#a78bfa' : '#7c3aed',
     secondary: isDarkMode ? '#818cf8' : '#6366f1',
-    gradient: isDarkMode 
+    gradient: isDarkMode
       ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
       : 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
     lineGradient: isDarkMode
@@ -105,8 +105,8 @@ export const Timeline = ({ data }) => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: isDarkMode 
-                    ? '0 0 20px rgba(139, 92, 246, 0.3)' 
+                  boxShadow: isDarkMode
+                    ? '0 0 20px rgba(139, 92, 246, 0.3)'
                     : '0 4px 20px rgba(124, 58, 237, 0.15)',
                   border: `3px solid ${colors.primary}`,
                 }}
