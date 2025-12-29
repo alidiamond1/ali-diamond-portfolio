@@ -235,7 +235,7 @@ const Hero = () => {
                 <FaArrowRight size={14} />
               </Link>
               <a
-                href="https://drive.google.com/file/d/1vt2sgUC5W1rTzyQ7uPtsm2oMi_I9z24q/view"
+                href="https://drive.google.com/file/d/1Cvo95ZeaI-JoYOdUyvnKmZaYd7ShiiXT/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
